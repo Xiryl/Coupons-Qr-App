@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+  <data/>
+  <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".views.MainActivity">
+
+    <!-- TOOLBAR -->
+    <android.support.v7.widget.LinearLayoutCompat
+      android:layout_width="match_parent"
+      android:layout_height="@dimen/toolbar_height"
+      android:background="@color/white">
+
+      <android.support.v7.widget.AppCompatImageButton
+        android:src="@drawable/ic_arrow_left"
+        android:background="@android:color/transparent"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"/>
+
+      <android.support.v7.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="@string/app_name"
+        android:layout_margin="@dimen/toobar_item_margin"
+        android:textColor="@color/black"
+        android:layout_gravity="center"
+        android:gravity="center"/>
+    </android.support.v7.widget.LinearLayoutCompat>
+    <!-- END TOOLBAR -->
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical">
+
+      <ImageView
+        android:layout_marginTop="@dimen/toolbar_height"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_barcode"
+        />
+
+      <android.support.v7.widget.AppCompatTextView
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Repilogo dati codice scannerizzato"
+        android:textColor="@color/bottombar_gray"
+        android:gravity="center"/>
+
+      <View
+        android:layout_margin="15dp"
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:background="@color/light_gray"/>
+
+
+      <android.support.v7.widget.AppCompatTextView
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Codice: xxxx"
+        android:textColor="@color/bottombar_dark_gray"
+        android:gravity="left"/>
+
+      <android.support.v7.widget.AppCompatTextView
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Data Scansione: xxxx"
+        android:textColor="@color/bottombar_dark_gray"
+        android:gravity="left"/>
+
+      <EditText
+        android:id="@+id/add_qr_layout_edittext_end_date"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/edittext_height"
+        android:padding="8dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginEnd="45dp"
+        android:drawablePadding="10dp"
+        android:drawableEnd="@drawable/ic_barcode"
+        android:textSize="@dimen/edittext_textsize"
+        android:hint="Data Scadenza Codice"
+        android:textColorHint="@color/bottombar_gray"
+        android:textColor="@color/bottombar_gray"
+        android:background="@drawable/rounded_edittext" />
+
+    </LinearLayout>
+  </RelativeLayout>
+</layout>

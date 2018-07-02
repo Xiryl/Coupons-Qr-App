@@ -20,6 +20,7 @@ import org.json.JSONObject;
 
 import it.chiarani.qrcoupons.R;
 import it.chiarani.qrcoupons.helpers.Tips;
+import it.chiarani.qrcoupons.views.AddQrActivity;
 import uk.co.samuelwall.materialtaptargetprompt.MaterialTapTargetPrompt;
 import uk.co.samuelwall.materialtaptargetprompt.extras.backgrounds.RectanglePromptBackground;
 
@@ -68,7 +69,7 @@ public class ScanQrFragment extends Fragment {
   @Override
   public void onActivityResult(int requestCode, int resultCode, Intent data) {
     IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
-    if (result != null) {
+    /*if (result != null) {
       //if qrcode has nothing in it
       if (result.getContents() == null) {
         Toast.makeText(this.getContext(), "Result Not Found", Toast.LENGTH_LONG).show();
@@ -79,6 +80,7 @@ public class ScanQrFragment extends Fragment {
           //JSONObject obj = new JSONObject(result.getContents());
           //setting values to textviews
           Toast.makeText(this.getContext(), result.getContents(), Toast.LENGTH_LONG).show();
+
         } catch (Exception e) {
           e.printStackTrace();
           //if control comes here
@@ -88,8 +90,12 @@ public class ScanQrFragment extends Fragment {
           Toast.makeText(this.getContext(), result.getContents(), Toast.LENGTH_LONG).show();
         }
       }
+
     } else {
       super.onActivityResult(requestCode, resultCode, data);
-    }
+    }*/
+
+    Intent intent = new Intent(getActivity(), AddQrActivity.class);
+    startActivity(intent);
   }
 }

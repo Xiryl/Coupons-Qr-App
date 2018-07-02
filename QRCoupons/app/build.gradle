@@ -46,4 +46,8 @@ dependencies {
     // zxing qr scanner
     // https://www.simplifiedcoding.net/android-qr-code-scanner-tutorial/
     implementation 'com.journeyapps:zxing-android-embedded:3.4.0'
+
+    // datetime Picker
+    // https://github.com/wdullaer/MaterialDateTimePicker
+    implementation 'com.wdullaer:materialdatetimepicker:3.6.1'
 }

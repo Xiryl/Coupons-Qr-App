@@ -1,34 +1,30 @@
 package it.chiarani.qrcoupons.views;
 
-import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.widget.Toast;
-
-import com.google.zxing.integration.android.IntentIntegrator;
-import com.google.zxing.integration.android.IntentResult;
 
 import it.chiarani.qrcoupons.R;
-import it.chiarani.qrcoupons.databinding.MainActivityLayoutBinding;
+import it.chiarani.qrcoupons.databinding.MainLayoutBinding;
 import it.chiarani.qrcoupons.fragments.ScanQrFragment;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
   private static final String TAG_SCAN_QR = "tag_scan_qr";
 
-  private MainActivityLayoutBinding binding;
+
   private BottomNavigationView      bottomNavigationView;
   private ScanQrFragment            scanqrF = new ScanQrFragment();
+  private MainLayoutBinding binding;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
     // set view
-    binding = DataBindingUtil.setContentView(this, R.layout.main_activity_layout);
+    binding = DataBindingUtil.setContentView(this, R.layout.main_layout);
 
     // set bottom navbar
     bottomNavigationView = (BottomNavigationView) findViewById(R.id.main_activity_bottom_nav);
@@ -58,7 +54,5 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     }
     return false;
   }
-
-
 
 }
