@@ -2,4 +2,8 @@
 <resources>
   <dimen name="toolbar_height">54dp</dimen>
   <dimen name="toobar_item_margin">15dp</dimen>
+  <dimen name="edittext_border_roiund">14dp</dimen>
+  <dimen name="edittext_height">35dp</dimen>
+  <dimen name="edittext_margin">15dp</dimen>
+  <dimen name="edittext_textsize">15sp</dimen>
 </resources>

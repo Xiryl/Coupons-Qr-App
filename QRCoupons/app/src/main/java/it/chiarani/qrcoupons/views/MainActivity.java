@@ -8,13 +8,15 @@ import android.view.MenuItem;
 
 import it.chiarani.qrcoupons.R;
 import it.chiarani.qrcoupons.databinding.MainActivityLayoutBinding;
-import it.chiarani.qrcoupons.fragments.CouponsFragment;
+import it.chiarani.qrcoupons.fragments.ScanQrFragment;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
+  private static final String TAG_SCAN_QR = "tag_scan_qr";
+
   private MainActivityLayoutBinding binding;
   private BottomNavigationView      bottomNavigationView;
-  private CouponsFragment           couponsF = new CouponsFragment();
+  private ScanQrFragment            scanqrF = new ScanQrFragment();
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -26,9 +28,13 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     // set bottom navbar
     bottomNavigationView = (BottomNavigationView) findViewById(R.id.main_activity_bottom_nav);
 
+    // set scanqr as checked item
+    bottomNavigationView.setSelectedItemId(R.id.bottombaritem_scanqr);
+
+    // set scanqr fragment
     getSupportFragmentManager()
         .beginTransaction()
-        .replace(R.id.main_activity_fragment_holder, couponsF, "tag1")
+        .replace(R.id.main_activity_fragment_holder, scanqrF, TAG_SCAN_QR)
         .commit();
   }
 

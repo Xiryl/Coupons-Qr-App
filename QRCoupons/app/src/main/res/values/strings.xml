@@ -1,3 +1,5 @@
 <resources>
   <string name="app_name">QR Coupons</string>
+  <string name="btn_valida">Valida</string>
+  <string name="edittext_hint"> Codice Qr</string>
 </resources>

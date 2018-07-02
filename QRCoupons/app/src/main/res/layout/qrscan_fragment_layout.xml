@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+  <data/>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:context=".fragments.ScanQrFragment"
+  android:background="@color/white">
+
+  <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+
+    <EditText
+      android:id="@+id/qrscan_fragment_edittext_qrcode"
+      android:layout_width="fill_parent"
+      android:layout_height="@dimen/edittext_height"
+      android:padding="8dp"
+      android:layout_margin="@dimen/edittext_margin"
+      android:drawableStart="@drawable/ic_barcode"
+      android:textSize="@dimen/edittext_textsize"
+      android:hint="@string/edittext_hint"
+      android:textColorHint="@color/bottombar_gray"
+      android:textColor="@color/bottombar_gray"
+      android:background="@drawable/rounded_edittext" />
+
+    <android.support.v7.widget.AppCompatButton
+      android:id="@+id/qrscan_fragment_btn_valida"
+      android:layout_width="wrap_content"
+      android:layout_height="@dimen/edittext_height"
+      android:layout_marginEnd="@dimen/edittext_margin"
+      android:textAllCaps="false"
+      android:layout_alignParentEnd="true"
+      android:layout_centerVertical="true"
+      android:text="@string/btn_valida"
+      android:background="@drawable/rounded_button"/>
+  </RelativeLayout>
+
+</FrameLayout>
+
+</layout>
