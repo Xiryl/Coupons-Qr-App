@@ -1,10 +1,15 @@
 package it.chiarani.qrcoupons.views;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.widget.Toast;
+
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 
 import it.chiarani.qrcoupons.R;
 import it.chiarani.qrcoupons.databinding.MainActivityLayoutBinding;
@@ -53,5 +58,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     }
     return false;
   }
+
+
 
 }

@@ -16,12 +16,12 @@ public class Tips {
 
   public static void MakeTipsForQrScanFragment(View rootView, ScanQrFragment fragment) {
 
-    final MaterialTapTargetPrompt test = new MaterialTapTargetPrompt.Builder(fragment)
+    final MaterialTapTargetPrompt secondTips = new MaterialTapTargetPrompt.Builder(fragment)
         .setTarget(rootView.findViewById(R.id.qrscan_fragment_btn_valida))
         .setPrimaryText("Non riesci a scannerizzarlo?")
         .setSecondaryText("Inseriscilo manualmente da qua!").create();
 
-    final MaterialTapTargetPrompt test1 = new MaterialTapTargetPrompt.Builder(fragment)
+    final MaterialTapTargetPrompt firstTips = new MaterialTapTargetPrompt.Builder(fragment)
         .setTarget(rootView.findViewById(R.id.qrscan_fragment_btn_scannerizzaqr))
         .setPrimaryText("Scannerizza il QR")
         .setSecondaryText("Il tuo copupon verrà aggiunto automaticamente!")
@@ -35,7 +35,7 @@ public class Tips {
                 state == MaterialTapTargetPrompt.STATE_NON_FOCAL_PRESSED ||
                 state == MaterialTapTargetPrompt.STATE_FOCAL_PRESSED
                 ) {
-              test.show();
+              secondTips.show();
             }
 
           }

@@ -42,4 +42,8 @@ dependencies {
     // init tutorial
     // https://github.com/sjwall/MaterialTapTargetPrompt
     implementation 'uk.co.samuelwall:material-tap-target-prompt:2.10.0'
+
+    // zxing qr scanner
+    // https://www.simplifiedcoding.net/android-qr-code-scanner-tutorial/
+    implementation 'com.journeyapps:zxing-android-embedded:3.4.0'
 }
