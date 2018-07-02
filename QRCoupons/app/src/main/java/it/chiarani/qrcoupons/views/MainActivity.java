@@ -8,11 +8,13 @@ import android.view.MenuItem;
 
 import it.chiarani.qrcoupons.R;
 import it.chiarani.qrcoupons.databinding.MainActivityLayoutBinding;
+import it.chiarani.qrcoupons.fragments.CouponsFragment;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
   private MainActivityLayoutBinding binding;
-  private BottomNavigationView bottomNavigationView;
+  private BottomNavigationView      bottomNavigationView;
+  private CouponsFragment           couponsF = new CouponsFragment();
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -20,8 +22,19 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
     // set view
     binding = DataBindingUtil.setContentView(this, R.layout.main_activity_layout);
-    bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_nav);
 
+    // set bottom navbar
+    bottomNavigationView = (BottomNavigationView) findViewById(R.id.main_activity_bottom_nav);
+
+    //
+    Bundle bundle = new Bundle();
+    bundle.putString("param1", "ciao");
+    couponsF.setArguments(bundle);
+
+    getSupportFragmentManager()
+        .beginTransaction()
+        .replace(R.id.main_activity_fragment_holder, couponsF, "tag1")
+        .commit();
   }
 
   @Override
