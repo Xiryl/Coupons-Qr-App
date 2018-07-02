@@ -14,9 +14,6 @@ import it.chiarani.qrcoupons.R;
 
 public class CouponsFragment extends Fragment {
 
-  private static final String ARG_PARAM1 = "param1";
-  private TextView txt1;
-  private String mParam1;
 
   public CouponsFragment() {
   }
@@ -25,17 +22,12 @@ public class CouponsFragment extends Fragment {
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    if (getArguments() != null) {
-      mParam1 = getArguments().getString(ARG_PARAM1);
-    }
   }
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
     View rootView =  inflater.inflate(R.layout.coupons_fragment_layout, container, false);
     txt1 = (TextView) rootView.findViewById(R.id.frag_coupons_txt1);
-    String title = getArguments().getString(ARG_PARAM1, "");
-    txt1.setText(title);
 
     return rootView;
   }

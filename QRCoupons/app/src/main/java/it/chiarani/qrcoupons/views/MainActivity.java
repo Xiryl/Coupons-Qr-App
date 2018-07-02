@@ -26,11 +26,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     // set bottom navbar
     bottomNavigationView = (BottomNavigationView) findViewById(R.id.main_activity_bottom_nav);
 
-    //
-    Bundle bundle = new Bundle();
-    bundle.putString("param1", "ciao");
-    couponsF.setArguments(bundle);
-
     getSupportFragmentManager()
         .beginTransaction()
         .replace(R.id.main_activity_fragment_holder, couponsF, "tag1")
