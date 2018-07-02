@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <item
+    android:id="@+id/bottombaritem_coupons"
+    android:title="Coupons"
+    android:icon="@drawable/ic_coupon"
+    app:showAsAction="always"/>
+
+  <item
+    android:id="@+id/bottombaritem_scanqr"
+    android:icon="@drawable/ic_qrcode"
+    android:title="Scan QR"
+    app:showAsAction="always"/>
+
+  <item
+    android:id="@+id/bottombaritem_account"
+    android:icon="@drawable/ic_user"
+    android:title="Account"
+    app:showAsAction="always"/>
+
+</menu>
