@@ -40,16 +40,37 @@
 
   <com.airbnb.lottie.LottieAnimationView
     android:id="@+id/animation_view"
-    android:layout_marginTop="150dp"
-    android:layout_marginLeft="35dp"
+    android:layout_marginTop="100dp"
+    android:layout_marginLeft="40dp"
     android:layout_marginRight="15dp"
     android:gravity="center"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:maxHeight="250dp"
     app:lottie_rawRes="@raw/scan"
     app:lottie_loop="true"
     app:lottie_autoPlay="true" />
 
+  <android.support.v7.widget.AppCompatTextView
+    android:layout_marginTop="400dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Scannerizza il codice QR\no il codice a barre in modo automatico"
+    android:textColor="@color/bottombar_gray"
+    android:gravity="center"/>
+
+  <android.support.v7.widget.AppCompatButton
+    android:layout_width="wrap_content"
+    android:layout_height="35dp"
+    android:layout_marginTop="460dp"
+    android:textColor="@color/white"
+    android:layout_centerInParent="true"
+    android:text=" Scannerizza Codice "
+    android:paddingStart="15dp"
+    android:paddingEnd="15dp"
+    android:textAllCaps="false"
+    android:layout_gravity="center_horizontal"
+    android:background="@drawable/rounded_button_ocra"/>
 </FrameLayout>
 
 </layout>
