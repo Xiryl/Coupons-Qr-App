@@ -9,18 +9,19 @@
   tools:context=".fragments.ScanQrFragment"
   android:background="@color/white">
 
+  <!-- QR INPUT BAR -->
   <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="15dp">
+    android:layout_marginTop="@dimen/offset_15">
 
     <EditText
       android:id="@+id/qrscan_fragment_edittext_qrcode"
       android:layout_width="fill_parent"
       android:layout_height="@dimen/edittext_height"
-      android:padding="8dp"
+      android:padding="@dimen/offset_10"
       android:layout_margin="@dimen/edittext_margin"
-      android:drawablePadding="10dp"
+      android:drawablePadding="@dimen/offset_10"
       android:drawableStart="@drawable/ic_barcode"
       android:textSize="@dimen/edittext_textsize"
       android:hint="@string/edittext_hint"
@@ -28,6 +29,7 @@
       android:textColor="@color/bottombar_gray"
       android:background="@drawable/rounded_edittext" />
 
+    <!-- VALIDA BUTTON -->
     <android.support.v7.widget.AppCompatButton
       android:id="@+id/qrscan_fragment_btn_valida"
       android:layout_width="wrap_content"
@@ -38,7 +40,9 @@
       android:layout_centerVertical="true"
       android:text="@string/btn_valida"
       android:background="@drawable/rounded_button"/>
+    <!-- END VALIDA BUTTON -->
   </RelativeLayout>
+  <!-- END QR INPUT BAR -->
 
   <LinearLayout
     android:orientation="vertical"
@@ -46,48 +50,46 @@
     android:layout_height="fill_parent"
     android:gravity="center_vertical">
 
+    <!-- GIF ANIMATED -->
     <com.airbnb.lottie.LottieAnimationView
-      android:id="@+id/animation_view"
-
-      android:layout_marginLeft="40dp"
-      android:layout_marginRight="15dp"
+      android:id="@+id/qrscan_fragment_animation_view"
+      android:layout_marginStart="@dimen/lottie_animation_margin_start"
+      android:layout_marginEnd="@dimen/offset_15"
       android:gravity="center"
       android:layout_width="match_parent"
-      android:layout_height="300dp"
+      android:layout_height="@dimen/lottie_animation_max_heigth"
       android:layout_gravity="center_vertical"
       app:lottie_rawRes="@raw/scan"
       app:lottie_loop="true"
       app:lottie_autoPlay="true" />
+    <!-- END GIF ANIMATED -->
 
+    <!-- SCAN TEXT -->
     <android.support.v7.widget.AppCompatTextView
       android:layout_marginTop="25dp"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:text="Scannerizza il codice QR\no il codice a barre in modo automatico"
+      android:layout_marginBottom="@dimen/offset_10"
+      android:text="@string/qr_scan_layout_scan_qr"
       android:textColor="@color/bottombar_gray"
       android:gravity="center"/>
-
-
-
-
+    <!-- END SCAN TEXT -->
   </LinearLayout>
 
+  <!-- SCAN QR BUTTON -->
   <android.support.v7.widget.AppCompatButton
     android:id="@+id/qrscan_fragment_btn_scannerizzaqr"
     android:layout_width="wrap_content"
-    android:layout_height="40dp"
-    android:layout_marginTop="40dp"
+    android:layout_height="@dimen/offset_40"
+    android:layout_marginTop="@dimen/offset_10"
     android:textColor="@color/white"
-    android:text="Scannerizza Codice"
-    android:paddingStart="15dp"
-    android:paddingEnd="15dp"
+    android:text="@string/qr_scan_layoyt_btn_scan"
+    android:paddingStart="@dimen/offset_15"
+    android:paddingEnd="@dimen/offset_15"
     android:textAllCaps="false"
     android:layout_gravity="bottom|center_horizontal"
-    android:layout_marginBottom="35dp"
+    android:layout_marginBottom="@dimen/offset_35"
     android:background="@drawable/rounded_button_ocra"/>
-
-
-
+  <!-- END SCAN QR BUTTON -->
 </FrameLayout>
-
 </layout>

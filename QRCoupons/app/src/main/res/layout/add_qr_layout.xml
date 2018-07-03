@@ -2,10 +2,9 @@
 <layout>
   <data/>
   <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="fill_parent"
     android:background="@color/white"
     tools:context=".views.MainActivity">
 
@@ -18,6 +17,7 @@
       <android.support.v7.widget.AppCompatImageButton
         android:src="@drawable/ic_arrow_left"
         android:background="@android:color/transparent"
+        android:layout_marginStart="@dimen/offset_15"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"/>
 
@@ -34,65 +34,117 @@
 
     <LinearLayout
       android:layout_width="match_parent"
-      android:layout_height="match_parent"
+      android:layout_height="fill_parent"
       android:orientation="vertical">
 
+      <!-- HEADER -->
       <ImageView
         android:layout_marginTop="@dimen/toolbar_height"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:src="@drawable/ic_barcode"
-        />
+        android:layout_height="@dimen/img_qr_height"
+        android:src="@drawable/ic_barcode"/>
 
       <android.support.v7.widget.AppCompatTextView
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="@dimen/offset_20"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Repilogo dati codice scannerizzato"
+        android:text="@string/add_qr_layout_txt_header"
         android:textColor="@color/bottombar_gray"
         android:gravity="center"/>
 
       <View
-        android:layout_margin="15dp"
+        android:layout_margin="@dimen/offset_20"
         android:layout_width="fill_parent"
-        android:layout_height="2dp"
+        android:layout_height="@dimen/hr_height"
         android:background="@color/light_gray"/>
+      <!-- END HEADER -->
 
 
+      <!-- QR CODE -->
       <android.support.v7.widget.AppCompatTextView
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginStart="@dimen/add_qr_txtv_margin_start"
+        android:layout_marginTop="@dimen/offset_20"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Codice: xxxx"
         android:textColor="@color/bottombar_dark_gray"
-        android:gravity="left"/>
+        android:gravity="start"/>
 
+      <!-- DATE SCAN  -->
       <android.support.v7.widget.AppCompatTextView
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginStart="@dimen/add_qr_txtv_margin_start"
+        android:layout_marginTop="@dimen/offset_20"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Data Scansione: xxxx"
         android:textColor="@color/bottombar_dark_gray"
-        android:gravity="left"/>
+        android:gravity="start"/>
 
+      <!-- DATE EXPIRIED -->
       <EditText
         android:id="@+id/add_qr_layout_edittext_end_date"
         android:layout_width="fill_parent"
         android:layout_height="@dimen/edittext_height"
         android:padding="8dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginEnd="45dp"
-        android:drawablePadding="10dp"
-        android:drawableEnd="@drawable/ic_barcode"
+        android:layout_marginStart="@dimen/add_qr_txtv_margin_start"
+        android:layout_marginTop="@dimen/offset_20"
+        android:layout_marginEnd="@dimen/add_qr_txtv_margin_start"
+        android:drawablePadding="@dimen/add_qr_txtv_margin_end"
+        android:drawableEnd="@drawable/ic_calendar"
         android:textSize="@dimen/edittext_textsize"
-        android:hint="Data Scadenza Codice"
+        android:hint="@string/add_qr_layout_edittext_hint"
         android:textColorHint="@color/bottombar_gray"
         android:textColor="@color/bottombar_gray"
         android:background="@drawable/rounded_edittext" />
 
+
+      <!-- NAME -->
+      <EditText
+        android:id="@+id/add_qr_layout_edittext_name"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/edittext_height"
+        android:padding="8dp"
+        android:layout_marginStart="@dimen/add_qr_txtv_margin_start"
+        android:layout_marginTop="@dimen/offset_20"
+        android:layout_marginEnd="@dimen/add_qr_txtv_margin_start"
+        android:textSize="@dimen/edittext_textsize"
+        android:hint="@string/add_qr_layout_edittext_name_hint"
+        android:textColorHint="@color/bottombar_gray"
+        android:textColor="@color/bottombar_gray"
+        android:background="@drawable/rounded_edittext" />
+
+      <!-- DESCRIPTION -->
+      <EditText
+        android:id="@+id/add_qr_layout_edittext_description"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/edittext_height"
+        android:padding="8dp"
+        android:layout_marginStart="@dimen/add_qr_txtv_margin_start"
+        android:layout_marginTop="@dimen/offset_20"
+        android:layout_marginEnd="@dimen/add_qr_txtv_margin_start"
+        android:textSize="@dimen/edittext_textsize"
+        android:hint="@string/add_qr_layout_edittext_description_hint"
+        android:textColorHint="@color/bottombar_gray"
+        android:textColor="@color/bottombar_gray"
+        android:background="@drawable/rounded_edittext" />
+
+      <!-- SAVE -->
+      <android.support.v7.widget.AppCompatButton
+        android:id="@+id/add_qr_layout_btn_salva"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/offset_40"
+        android:layout_marginTop="@dimen/offset_40"
+        android:textColor="@color/white"
+        android:text="@string/add_qr_layout_btn_salva"
+        android:paddingStart="@dimen/offset_15"
+        android:paddingEnd="@dimen/offset_15"
+        android:textAllCaps="false"
+        android:layout_gravity="bottom|center_horizontal"
+        android:background="@drawable/rounded_button_ocra"/>
+
     </LinearLayout>
+
+
+
   </RelativeLayout>
 </layout>

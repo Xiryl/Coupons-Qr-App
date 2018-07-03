@@ -8,6 +8,7 @@
   <color name="black">#000000</color>
   <color name="white">#ffffff</color>
   <color name="bottombar_dark_gray">#232429</color>
+  <color name="dark_gray">#555555</color>
   <color name="bottombar_gray">#67696D</color>
   <color name="ocra">#E58807</color>
 </resources>
