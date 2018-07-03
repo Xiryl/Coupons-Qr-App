@@ -67,8 +67,8 @@ public class AddQrActivity extends AppCompatActivity implements DatePickerDialog
 
   @Override
   public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
-    String date = "You picked the following date: "+dayOfMonth+"/"+(monthOfYear+1)+"/"+year;
-    //dateTextView.setText(date);
+    String date = new String(dayOfMonth+"/"+(monthOfYear+1)+"/"+year);
+    binding.addQrLayoutEdittextEndDate.setText(date);
   }
 
   private void setBackClick() {
@@ -80,6 +80,7 @@ public class AddQrActivity extends AppCompatActivity implements DatePickerDialog
             startActivity(intent);
 
           }
-        });
+        }
+    );
   }
 }
