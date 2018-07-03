@@ -15,6 +15,7 @@
       android:background="@color/white">
 
       <android.support.v7.widget.AppCompatImageButton
+        android:id="@+id/add_qr_layout_btn_back"
         android:src="@drawable/ic_arrow_left"
         android:background="@android:color/transparent"
         android:layout_marginStart="@dimen/offset_15"

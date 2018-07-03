@@ -1,6 +1,7 @@
 package it.chiarani.qrcoupons.views;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,6 +28,7 @@ public class AddQrActivity extends AppCompatActivity implements DatePickerDialog
     // set view
     binding = DataBindingUtil.setContentView(this, R.layout.add_qr_layout);
 
+    // datetime picker
     binding.addQrLayoutEdittextEndDate.setOnTouchListener(new View.OnTouchListener() {
       @Override
       public boolean onTouch(View v, MotionEvent event) {
@@ -49,11 +51,26 @@ public class AddQrActivity extends AppCompatActivity implements DatePickerDialog
         return false;
       }
     });
+
+    setBackClick();
+
   }
 
   @Override
   public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
     String date = "You picked the following date: "+dayOfMonth+"/"+(monthOfYear+1)+"/"+year;
     //dateTextView.setText(date);
+  }
+
+  private void setBackClick() {
+    binding.addQrLayoutBtnBack.setOnClickListener(
+        new View.OnClickListener() {
+          @Override
+          public void onClick(View view) {
+            Intent intent = new Intent(view.getContext(), MainActivity.class);
+            startActivity(intent);
+
+          }
+        });
   }
 }

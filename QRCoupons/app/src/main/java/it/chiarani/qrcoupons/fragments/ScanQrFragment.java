@@ -2,6 +2,7 @@ package it.chiarani.qrcoupons.fragments;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -24,11 +25,13 @@ import it.chiarani.qrcoupons.views.AddQrActivity;
 import uk.co.samuelwall.materialtaptargetprompt.MaterialTapTargetPrompt;
 import uk.co.samuelwall.materialtaptargetprompt.extras.backgrounds.RectanglePromptBackground;
 
+import static android.content.Context.MODE_PRIVATE;
+
 public class ScanQrFragment extends Fragment {
 
-
-  EditText txt1;
-  Button btn_scanqr;
+  final String PREFS_NAME = "AppPref";
+  private EditText txt1;
+  private Button btn_scanqr;
   //qr code scanner object
   private IntentIntegrator qrScan;
 
@@ -45,7 +48,8 @@ public class ScanQrFragment extends Fragment {
   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
     View rootView =  inflater.inflate(R.layout.qrscan_fragment_layout, container, false);
 
-    Tips.MakeTipsForQrScanFragment(rootView, this);
+    CheckPref(rootView);
+
     txt1 = (EditText) rootView.findViewById(R.id.qrscan_fragment_edittext_qrcode);
     btn_scanqr = (Button) rootView.findViewById(R.id.qrscan_fragment_btn_scannerizzaqr);
 
@@ -63,6 +67,19 @@ public class ScanQrFragment extends Fragment {
     return rootView;
   }
 
+    private void CheckPref(View rootView) {
+      SharedPreferences settings = this.getContext().getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+      if(settings.getBoolean("my_first_time", true)) {
+        //the app is being launched for first time, do something
+
+        // first time task
+        Tips.MakeTipsForQrScanFragment(rootView, this);
+
+
+        // record the fact that the app has been started at least once
+        settings.edit().putBoolean("my_first_time", false).commit();
+      }
+    }
 
 
   //Getting the scan results
