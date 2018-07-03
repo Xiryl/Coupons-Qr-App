@@ -1,6 +1,7 @@
 package it.chiarani.qrcoupons.views;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
@@ -76,11 +77,21 @@ public class AddQrActivity extends AppCompatActivity implements DatePickerDialog
         new View.OnClickListener() {
           @Override
           public void onClick(View view) {
-            Intent intent = new Intent(view.getContext(), MainActivity.class);
-            startActivity(intent);
-
+            LaunchMainActivity(view.getContext());
           }
         }
     );
+  }
+
+  @Override
+  public void onBackPressed() {
+    LaunchMainActivity(this.getApplicationContext());
+  }
+
+  private void LaunchMainActivity(Context context) {
+    Intent intent = new Intent(context, MainActivity.class);
+    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+    startActivity(intent);
   }
 }
