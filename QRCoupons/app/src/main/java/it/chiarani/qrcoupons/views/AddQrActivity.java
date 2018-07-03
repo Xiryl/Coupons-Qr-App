@@ -8,10 +8,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Toast;
 
 import it.chiarani.qrcoupons.databinding.AddQrLayoutBinding;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -19,7 +21,6 @@ import java.util.Date;
 import it.chiarani.qrcoupons.R;
 
 public class AddQrActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
-
 
   private AddQrLayoutBinding binding;
   final static String INTENT_QR_DATA = "EXTRA_QR_DATA";
@@ -29,6 +30,7 @@ public class AddQrActivity extends AppCompatActivity implements DatePickerDialog
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+
     // set view
     binding = DataBindingUtil.setContentView(this, R.layout.add_qr_layout);
 
@@ -39,6 +41,23 @@ public class AddQrActivity extends AppCompatActivity implements DatePickerDialog
     binding.addQrLayoutTxtQrDate.setText("Data Scansione: " + today_date);
 
     // datetime picker
+    binding.addQrLayoutEdittextEndDate.setOnClickListener(
+        new View.OnClickListener() {
+          @Override
+          public void onClick(View view) {
+
+             Calendar now = Calendar.getInstance();
+            DatePickerDialog dpd = DatePickerDialog.newInstance(
+                AddQrActivity.this,
+                now.get(Calendar.YEAR),
+                now.get(Calendar.MONTH),
+                now.get(Calendar.DAY_OF_MONTH)
+            );
+            dpd.show(getFragmentManager(), "Datepickerdialog");
+          }
+    });
+
+
     binding.addQrLayoutEdittextEndDate.setOnTouchListener(new View.OnTouchListener() {
       @Override
       public boolean onTouch(View v, MotionEvent event) {
@@ -63,6 +82,7 @@ public class AddQrActivity extends AppCompatActivity implements DatePickerDialog
     });
 
     setBackClick();
+    setSaveClick();
 
   }
 
@@ -78,6 +98,28 @@ public class AddQrActivity extends AppCompatActivity implements DatePickerDialog
           @Override
           public void onClick(View view) {
             LaunchMainActivity(view.getContext());
+          }
+        }
+    );
+  }
+
+  private void setSaveClick() {
+    binding.addQrLayoutBtnSalva.setOnClickListener(
+        new View.OnClickListener() {
+          @Override
+          public void onClick(View view) {
+
+            // controllo che la data sia corretta
+            try {
+              DateFormat sourceFormat = new SimpleDateFormat("dd/MM/yyyy");
+              Date date = sourceFormat.parse(binding.addQrLayoutEdittextEndDate.getText().toString());
+
+              Toast.makeText(view.getContext(), "Ok", Toast.LENGTH_LONG).show();
+            }
+            catch (java.text.ParseException ex) {
+              Toast.makeText(view.getContext(), "Data non valida, riprova.", Toast.LENGTH_LONG).show();
+              return;
+            }
           }
         }
     );
