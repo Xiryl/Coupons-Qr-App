@@ -30,8 +30,10 @@ import static android.content.Context.MODE_PRIVATE;
 public class ScanQrFragment extends Fragment {
 
   final String PREFS_NAME = "AppPref";
+  final static String INTENT_QR_DATA = "EXTRA_QR_DATA";
   private EditText txt1;
   private Button btn_scanqr;
+
   //qr code scanner object
   private IntentIntegrator qrScan;
 
@@ -63,7 +65,6 @@ public class ScanQrFragment extends Fragment {
         }
     });
 
-
     return rootView;
   }
 
@@ -86,33 +87,28 @@ public class ScanQrFragment extends Fragment {
   @Override
   public void onActivityResult(int requestCode, int resultCode, Intent data) {
     IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
-    /*if (result != null) {
+    if (result != null) {
+
       //if qrcode has nothing in it
       if (result.getContents() == null) {
-        Toast.makeText(this.getContext(), "Result Not Found", Toast.LENGTH_LONG).show();
+        Toast.makeText(this.getContext(), "Nessun codice rilevato", Toast.LENGTH_LONG).show();
       } else {
+
         //if qr contains data
         try {
-          //converting the data to json
-          //JSONObject obj = new JSONObject(result.getContents());
-          //setting values to textviews
-          Toast.makeText(this.getContext(), result.getContents(), Toast.LENGTH_LONG).show();
+          Toast.makeText(this.getContext(), "Codice Rilevato", Toast.LENGTH_LONG).show();
+          Intent intent = new Intent(getActivity(), AddQrActivity.class);
+          intent.putExtra(INTENT_QR_DATA, result.getContents());
+          startActivity(intent);
 
         } catch (Exception e) {
           e.printStackTrace();
-          //if control comes here
-          //that means the encoded format not matches
-          //in this case you can display whatever data is available on the qrcode
-          //to a toast
-          Toast.makeText(this.getContext(), result.getContents(), Toast.LENGTH_LONG).show();
+          Toast.makeText(this.getContext(), "Ho riscontrato un errore. Riprova!", Toast.LENGTH_LONG).show();
         }
       }
-
-    } else {
+    }
+    else {
       super.onActivityResult(requestCode, resultCode, data);
-    }*/
-
-    Intent intent = new Intent(getActivity(), AddQrActivity.class);
-    startActivity(intent);
+    }
   }
 }

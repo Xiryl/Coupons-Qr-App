@@ -11,7 +11,9 @@ import android.view.View;
 import it.chiarani.qrcoupons.databinding.AddQrLayoutBinding;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 import it.chiarani.qrcoupons.R;
 
@@ -19,6 +21,7 @@ public class AddQrActivity extends AppCompatActivity implements DatePickerDialog
 
 
   private AddQrLayoutBinding binding;
+  final static String INTENT_QR_DATA = "EXTRA_QR_DATA";
 
 
   @SuppressLint("ClickableViewAccessibility")
@@ -27,6 +30,12 @@ public class AddQrActivity extends AppCompatActivity implements DatePickerDialog
     super.onCreate(savedInstanceState);
     // set view
     binding = DataBindingUtil.setContentView(this, R.layout.add_qr_layout);
+
+    String qr_data = getIntent().getStringExtra(INTENT_QR_DATA);
+    binding.addQrLayoutTxtQrValue.setText("Codice: " + qr_data);
+    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+    String today_date = sdf.format(new Date());
+    binding.addQrLayoutTxtQrDate.setText("Data Scansione: " + today_date);
 
     // datetime picker
     binding.addQrLayoutEdittextEndDate.setOnTouchListener(new View.OnTouchListener() {

@@ -63,6 +63,7 @@
 
       <!-- QR CODE -->
       <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/add_qr_layout_txt_qr_value"
         android:layout_marginStart="@dimen/add_qr_txtv_margin_start"
         android:layout_marginTop="@dimen/offset_20"
         android:layout_width="match_parent"
@@ -73,6 +74,7 @@
 
       <!-- DATE SCAN  -->
       <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/add_qr_layout_txt_qr_date"
         android:layout_marginStart="@dimen/add_qr_txtv_margin_start"
         android:layout_marginTop="@dimen/offset_20"
         android:layout_width="match_parent"
