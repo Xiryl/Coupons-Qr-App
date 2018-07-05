@@ -9,6 +9,15 @@
   android:background="@color/white"
   tools:context=".views.MainActivity">
 
+  <!-- FRAGMENTS -->
+  <FrameLayout
+    android:id="@+id/main_activity_fragment_holder"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="?attr/actionBarSize"
+    android:layout_marginTop="@dimen/toolbar_height"/>
+  <!-- END FRAGMENTS -->
+
   <!-- TOOLBAR -->
   <android.support.v7.widget.LinearLayoutCompat
     android:layout_width="match_parent"
@@ -25,15 +34,6 @@
       android:gravity="center"/>
   </android.support.v7.widget.LinearLayoutCompat>
   <!-- END TOOLBAR -->
-
-  <!-- FRAGMENTS -->
-  <FrameLayout
-    android:id="@+id/main_activity_fragment_holder"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginBottom="?attr/actionBarSize"
-    android:layout_marginTop="@dimen/toolbar_height"/>
-  <!-- END FRAGMENTS -->
 
   <!-- BOTTOM NAVBAR  -->
   <android.support.design.widget.BottomNavigationView
