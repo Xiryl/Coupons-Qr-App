@@ -65,6 +65,10 @@ dependencies {
     // https://github.com/wdullaer/MaterialDateTimePicker
     implementation 'com.wdullaer:materialdatetimepicker:3.6.1'
 
+    // recyclerview
+    // https://developer.android.com/guide/topics/ui/layout/recyclerview
+    implementation 'com.android.support:recyclerview-v7:27.1.1'
+
 }
 
 
