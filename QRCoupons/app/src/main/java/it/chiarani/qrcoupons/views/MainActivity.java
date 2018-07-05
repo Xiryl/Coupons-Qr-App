@@ -71,6 +71,4 @@ public class MainActivity extends AppCompatActivity {
         .replace(R.id.main_activity_fragment_holder, scanqrF, TAG_SCAN_QR)
         .commit();
   }
-
-
 }
