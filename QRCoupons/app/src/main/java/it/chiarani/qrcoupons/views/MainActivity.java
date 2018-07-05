@@ -12,12 +12,13 @@ import it.chiarani.qrcoupons.fragments.ScanQrFragment;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
+  // ---- PRIVATE FIELDS ----
   private static final String TAG_SCAN_QR = "tag_scan_qr";
 
-
-  private BottomNavigationView      bottomNavigationView;
-  private ScanQrFragment            scanqrF = new ScanQrFragment();
-  private MainLayoutBinding binding;
+  private BottomNavigationView bottomNavigationView;
+  private ScanQrFragment       scanqrF = new ScanQrFragment();
+  private MainLayoutBinding    binding;
+  // ---- -------------- ----
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {

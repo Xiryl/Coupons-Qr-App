@@ -4,13 +4,12 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
 
-import it.chiarani.qrcoupons.databinding.AddQrLayoutBinding;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
 import java.text.DateFormat;
@@ -19,11 +18,20 @@ import java.util.Calendar;
 import java.util.Date;
 
 import it.chiarani.qrcoupons.R;
+import it.chiarani.qrcoupons.databinding.AddQrLayoutBinding;
+import it.chiarani.qrcoupons.db.entity.QrItemEntity;
+import it.chiarani.qrcoupons.repository.QrItemRepository;
+
+import static java.sql.Types.NULL;
 
 public class AddQrActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
 
-  private AddQrLayoutBinding binding;
+  // ---- PRIVATE FIELDS ----
   final static String INTENT_QR_DATA = "EXTRA_QR_DATA";
+
+  private SimpleDateFormat today_date_format = new SimpleDateFormat("dd/MM/yyyy");
+  private AddQrLayoutBinding binding;
+  // ---- -------------- ----
 
 
   @SuppressLint("ClickableViewAccessibility")
@@ -34,92 +42,74 @@ public class AddQrActivity extends AppCompatActivity implements DatePickerDialog
     // set view
     binding = DataBindingUtil.setContentView(this, R.layout.add_qr_layout);
 
-    String qr_data = getIntent().getStringExtra(INTENT_QR_DATA);
+    // set UI text
+    String qr_data    = getIntent().getStringExtra(INTENT_QR_DATA);
+    String today_date = today_date_format.format(new Date());
+
     binding.addQrLayoutTxtQrValue.setText("Codice: " + qr_data);
-    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-    String today_date = sdf.format(new Date());
     binding.addQrLayoutTxtQrDate.setText("Data Scansione: " + today_date);
 
-    // datetime picker
+    // datetime picker on edittext
     binding.addQrLayoutEdittextEndDate.setOnClickListener(
-        new View.OnClickListener() {
-          @Override
-          public void onClick(View view) {
+        view -> {
 
-             Calendar now = Calendar.getInstance();
-            DatePickerDialog dpd = DatePickerDialog.newInstance(
-                AddQrActivity.this,
-                now.get(Calendar.YEAR),
-                now.get(Calendar.MONTH),
-                now.get(Calendar.DAY_OF_MONTH)
-            );
-            dpd.show(getFragmentManager(), "Datepickerdialog");
-          }
-    });
-
-
-    binding.addQrLayoutEdittextEndDate.setOnTouchListener(new View.OnTouchListener() {
-      @Override
-      public boolean onTouch(View v, MotionEvent event) {
-        final int DRAWABLE_RIGHT = 2;
-
-        if(event.getAction() == MotionEvent.ACTION_UP) {
-          if(event.getRawX() >= (binding.addQrLayoutEdittextEndDate.getRight() - binding.addQrLayoutEdittextEndDate.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
-            // your action here
-            Calendar now = Calendar.getInstance();
-            DatePickerDialog dpd = DatePickerDialog.newInstance(
-                AddQrActivity.this,
-                now.get(Calendar.YEAR),
-                now.get(Calendar.MONTH),
-                now.get(Calendar.DAY_OF_MONTH)
-            );
-            dpd.show(getFragmentManager(), "Datepickerdialog");
-            return true;
-          }
-        }
-        return false;
-      }
-    });
+           Calendar now = Calendar.getInstance();
+          DatePickerDialog dpd = DatePickerDialog.newInstance(
+              AddQrActivity.this,
+              now.get(Calendar.YEAR),
+              now.get(Calendar.MONTH),
+              now.get(Calendar.DAY_OF_MONTH)
+          );
+          dpd.show(getFragmentManager(), "Datepickerdialog");
+        });
 
     setBackClick();
     setSaveClick();
-
   }
 
   @Override
   public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
-    String date = new String(dayOfMonth+"/"+(monthOfYear+1)+"/"+year);
+    String date = dayOfMonth + "/" + (monthOfYear + 1) + "/" + year;
     binding.addQrLayoutEdittextEndDate.setText(date);
   }
 
   private void setBackClick() {
     binding.addQrLayoutBtnBack.setOnClickListener(
-        new View.OnClickListener() {
-          @Override
-          public void onClick(View view) {
-            LaunchMainActivity(view.getContext());
-          }
-        }
+        view -> LaunchMainActivity(view.getContext())
     );
   }
 
   private void setSaveClick() {
     binding.addQrLayoutBtnSalva.setOnClickListener(
-        new View.OnClickListener() {
-          @Override
-          public void onClick(View view) {
+        view -> {
 
-            // controllo che la data sia corretta
-            try {
-              DateFormat sourceFormat = new SimpleDateFormat("dd/MM/yyyy");
-              Date date = sourceFormat.parse(binding.addQrLayoutEdittextEndDate.getText().toString());
+          // controllo che la data sia corretta
+          try {
+            DateFormat sourceFormat = new SimpleDateFormat("dd/MM/yyyy");
+            // if this fails the date is not correct format
+            Date date = sourceFormat.parse(binding.addQrLayoutEdittextEndDate.getText().toString());
 
-              Toast.makeText(view.getContext(), "Ok", Toast.LENGTH_LONG).show();
-            }
-            catch (java.text.ParseException ex) {
-              Toast.makeText(view.getContext(), "Data non valida, riprova.", Toast.LENGTH_LONG).show();
-              return;
-            }
+            QrItemRepository repo = new QrItemRepository(getApplication());
+
+            // create entry
+            QrItemEntity qrEntryTemplate = new QrItemEntity(
+                NULL,
+                binding.addQrLayoutEdittextName.getText().toString(),
+                binding.addQrLayoutEdittextDescription.getText().toString(),
+                binding.addQrLayoutTxtQrDate.getText().toString(),
+                binding.addQrLayoutEdittextEndDate.getText().toString(),
+                binding.addQrLayoutTxtQrValue.getText().toString(),
+                "");
+
+            // insert entry on db
+            repo.insertIt(qrEntryTemplate);
+
+            // UI
+            Toast.makeText(view.getContext(), "Aggiunto.", Toast.LENGTH_LONG).show();
+          }
+          catch (java.text.ParseException ex) {
+            Toast.makeText(view.getContext(), "Data non valida, riprova.", Toast.LENGTH_LONG).show();
+            return;
           }
         }
     );

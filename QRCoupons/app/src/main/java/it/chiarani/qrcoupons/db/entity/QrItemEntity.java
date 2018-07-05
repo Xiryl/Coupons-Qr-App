@@ -58,6 +58,42 @@ public class QrItemEntity {
     return this.uri;
   }
 
+  // -- SETTER METHODS --
+  @NonNull
+  public void setIdItem(int idItem) {
+    this.idItem = idItem;
+  }
+
+  @NonNull
+  public void setName(String name) {
+     this.name = name;
+  }
+
+  @NonNull
+  public void setDescription(String description) {
+     this.description = description;
+  }
+
+  @NonNull
+  public void setCreatedDate(String createdDate) {
+     this.createdDate = createdDate;
+  }
+
+  @NonNull
+  public void setExpirationDate(String expirationDate) {
+    this.expirationDate = expirationDate;
+  }
+
+  @NonNull
+  public void gsetCode(String code) {
+     this.code = code;
+  }
+
+  @NonNull
+  public void setUri(String uri) {
+     this.uri = uri;
+  }
+
   public QrItemEntity(@NonNull  int idItem,@NonNull  String name,@NonNull  String description,@NonNull  String createdDate, String expirationDate, String code, String uri) {
     this.idItem         = idItem;
     this.name           = name;

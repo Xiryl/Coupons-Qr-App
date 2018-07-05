@@ -1,9 +1,12 @@
 package it.chiarani.qrcoupons.db;
 
+import android.arch.persistence.db.SupportSQLiteDatabase;
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
+import android.os.AsyncTask;
+import android.support.annotation.NonNull;
 
 import it.chiarani.qrcoupons.db.dao.QrItemDao;
 import it.chiarani.qrcoupons.db.entity.QrItemEntity;
@@ -16,14 +19,13 @@ public abstract class QrItemDatabase extends RoomDatabase {
   private static QrItemDatabase INSTANCE;
 
 
-  static QrItemDatabase getDatabase(final Context context) {
+  public static QrItemDatabase getDatabase(final Context context) {
     if (INSTANCE == null) {
       synchronized (QrItemDatabase.class) {
         if (INSTANCE == null) {
           INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
               QrItemDatabase.class, "qr_table")
               .build();
-
         }
       }
     }
