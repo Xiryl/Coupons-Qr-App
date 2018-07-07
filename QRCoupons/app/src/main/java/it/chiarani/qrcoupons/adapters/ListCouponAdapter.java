@@ -1,11 +1,15 @@
 package it.chiarani.qrcoupons.adapters;
 
 import android.arch.lifecycle.LiveData;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.amulyakhare.textdrawable.TextDrawable;
 
 import org.w3c.dom.Text;
 
@@ -25,10 +29,13 @@ public class ListCouponAdapter extends RecyclerView.Adapter<ListCouponAdapter.Vi
 
   public static class ViewHolder extends RecyclerView.ViewHolder {
     TextView txtTest;
+    ImageView imgIcon;
     public ViewHolder(View view) {
       super(view);
 
       txtTest = (TextView) view.findViewById(R.id.tv_list_item_text);
+      imgIcon = (ImageView) view.findViewById(R.id.image_view);
+
     }
   }
   @Override
@@ -42,6 +49,9 @@ public class ListCouponAdapter extends RecyclerView.Adapter<ListCouponAdapter.Vi
   @Override
   public void onBindViewHolder(ViewHolder holder, int position) {
     holder.txtTest.setText(_items.get(position).getName());
+    TextDrawable drawable = TextDrawable.builder()
+        .buildRect(_items.get(position).getName().toString().substring(0,1), Color.RED);
+    holder.imgIcon.setImageDrawable(drawable);
   }
 
 

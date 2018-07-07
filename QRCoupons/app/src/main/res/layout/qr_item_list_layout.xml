@@ -5,6 +5,9 @@
   android:layout_height="wrap_content"
   android:orientation="vertical"
   >
+  <ImageView android:layout_width="60dp"
+    android:layout_height="60dp"
+    android:id="@+id/image_view"/>
   <!--Give this TextView an id-->
   <TextView
     android:layout_width="match_parent"
