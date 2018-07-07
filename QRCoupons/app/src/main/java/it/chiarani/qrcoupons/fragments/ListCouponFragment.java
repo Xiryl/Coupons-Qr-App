@@ -9,9 +9,16 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import it.chiarani.qrcoupons.R;
+import it.chiarani.qrcoupons.adapters.ListCouponAdapter;
 import it.chiarani.qrcoupons.databinding.ListCouponFragmentBinding;
+import it.chiarani.qrcoupons.db.entity.QrItemEntity;
+import it.chiarani.qrcoupons.repository.QrItemRepository;
 
 public class ListCouponFragment extends Fragment {
 
@@ -44,10 +51,22 @@ public class ListCouponFragment extends Fragment {
     mLayoutManager = new LinearLayoutManager(rootView.getContext());
     mRecyclerView.setLayoutManager(mLayoutManager);
 
+    List<QrItemEntity> tmp = new ArrayList<>();
+    QrItemRepository repo = new QrItemRepository(getActivity().getApplication());
+    repo.getAll().observeForever( entries -> {
+      if (entries != null) {
 
-    // specify an adapter (see also next example)
-    //mAdapter = new MyAdapter(myDataset);
-    //mRecyclerView.setAdapter(mAdapter);
+        tmp.addAll(entries);
+
+        // specify an adapter (see also next example)
+        mAdapter = new ListCouponAdapter(tmp);
+        mRecyclerView.setAdapter(mAdapter);
+      }
+    });
+
+
+
+
 
     return rootView;
   }

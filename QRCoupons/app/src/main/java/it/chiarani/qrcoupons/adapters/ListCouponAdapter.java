@@ -2,11 +2,16 @@ package it.chiarani.qrcoupons.adapters;
 
 import android.arch.lifecycle.LiveData;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.util.List;
 
+import it.chiarani.qrcoupons.R;
 import it.chiarani.qrcoupons.db.entity.QrItemEntity;
 
 public class ListCouponAdapter extends RecyclerView.Adapter<ListCouponAdapter.ViewHolder> {
@@ -19,19 +24,24 @@ public class ListCouponAdapter extends RecyclerView.Adapter<ListCouponAdapter.Vi
   }
 
   public static class ViewHolder extends RecyclerView.ViewHolder {
+    TextView txtTest;
     public ViewHolder(View view) {
       super(view);
+
+      txtTest = (TextView) view.findViewById(R.id.tv_list_item_text);
     }
   }
   @Override
   public ListCouponAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-    //Define a layout file for individual list item
-    return null;
+    Boolean attachViewImmediatelyToParent = false;
+    View singleItemLayout = LayoutInflater.from(parent.getContext()).inflate(R.layout.qr_item_list_layout,parent,attachViewImmediatelyToParent);
+    ViewHolder myViewHolder = new ViewHolder(singleItemLayout);
+    return myViewHolder;
   }
 
   @Override
   public void onBindViewHolder(ViewHolder holder, int position) {
-    //Set data to the individual list item
+    holder.txtTest.setText(_items.get(position).getName());
   }
 
 

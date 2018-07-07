@@ -84,13 +84,13 @@ public class ScanQrFragment extends Fragment {
 
       //if qrcode has nothing in it
       if (result.getContents() == null) {
-        Toast.makeText(this.getContext(),  "Nessun Codice Rilevato", Toast.LENGTH_LONG).show();
+        //Toast.makeText(this.getContext(),  "Nessun Codice Rilevato", Toast.LENGTH_LONG).show();
 
         QrItemRepository repo = new QrItemRepository(getActivity().getApplication());
         repo.getAll().observe(this, entries -> {
           if (entries != null) {
             for (QrItemEntity e : entries) {
-              Toast.makeText(this.getContext(), e.getIdItem(), Toast.LENGTH_LONG).show();
+              Toast.makeText(this.getContext(), e.getName().toString(), Toast.LENGTH_LONG).show();
             }
           }
         });
