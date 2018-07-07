@@ -51,9 +51,11 @@ public class ListCouponAdapter extends RecyclerView.Adapter<ListCouponAdapter.Vi
   public void onBindViewHolder(ViewHolder holder, int position) {
     ColorGenerator generator = ColorGenerator.MATERIAL;
 
+
+
     holder.txtTitle.setText(_items.get(position).getName() + "\n" + _items.get(position).getDescription());
 
-    String first_letter = _items.get(position).getName().toString().substring(0,1);
+    String first_letter = _items.get(position).getName().substring(0,1).toUpperCase();
     TextDrawable drawable = TextDrawable.builder()
         .buildRound(first_letter, generator.getColor(first_letter));
 

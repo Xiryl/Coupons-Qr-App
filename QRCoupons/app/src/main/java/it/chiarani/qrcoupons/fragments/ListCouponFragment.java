@@ -1,14 +1,18 @@
 package it.chiarani.qrcoupons.fragments;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -43,10 +47,10 @@ public class ListCouponFragment extends Fragment {
                            Bundle savedInstanceState) {
     View rootView = inflater.inflate(R.layout.list_coupon_fragment, container, false);
 
-
     mRecyclerView = (RecyclerView) rootView.findViewById(R.id.list_coupon_fragment_recycler_view);
     mRecyclerView.setHasFixedSize(true);
 
+    this.getActivity().getWindow().setStatusBarColor(Color.rgb(239, 121, 66));
     // set linearlayoyt manager
     mLayoutManager = new LinearLayoutManager(rootView.getContext());
     mRecyclerView.setLayoutManager(mLayoutManager);
