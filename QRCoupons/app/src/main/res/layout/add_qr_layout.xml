@@ -115,6 +115,7 @@
         android:hint="@string/add_qr_layout_edittext_name_hint"
         android:textColorHint="@color/bottombar_gray"
         android:textColor="@color/bottombar_gray"
+        android:digits="qwertyuiopasdfghjklzxcvbnm "
         android:background="@drawable/rounded_edittext" />
 
       <!-- DESCRIPTION -->
@@ -122,9 +123,10 @@
         android:id="@+id/add_qr_layout_edittext_description"
         android:layout_width="fill_parent"
         android:layout_height="@dimen/edittext_height"
-        android:maxLength="50"
+        android:maxLength="30"
         android:padding="8dp"
         android:layout_marginStart="@dimen/add_qr_txtv_margin_start"
+        android:digits="qwertyuiopasdfghjklzxcvbnm "
         android:layout_marginTop="@dimen/offset_20"
         android:layout_marginEnd="@dimen/add_qr_txtv_margin_start"
         android:textSize="@dimen/edittext_textsize"

@@ -96,13 +96,14 @@ public class AddQrActivity extends AppCompatActivity implements DatePickerDialog
             }
 
             QrItemRepository repo = new QrItemRepository(getApplication());
+            String today_date = today_date_format.format(new Date());
 
             // create entry
             QrItemEntity qrEntryTemplate = new QrItemEntity(
                 NULL,
                 binding.addQrLayoutEdittextName.getText().toString(),
                 binding.addQrLayoutEdittextDescription.getText().toString(),
-                binding.addQrLayoutTxtQrDate.getText().toString(),
+                today_date,
                 binding.addQrLayoutEdittextEndDate.getText().toString(),
                 binding.addQrLayoutTxtQrValue.getText().toString(),
                 "");

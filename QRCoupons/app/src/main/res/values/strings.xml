@@ -6,7 +6,7 @@
   <string name="qr_scan_layoyt_btn_scan">Scannerizza Codice</string>
   <string name="add_qr_layout_txt_header">Repilogo dati del codice scannerizzato</string>
   <string name="add_qr_layout_edittext_hint">Data Scadenza dd/MM/YY</string>
-  <string name="add_qr_layout_edittext_description_hint">Descrizione (max. 50)</string>
+  <string name="add_qr_layout_edittext_description_hint">Descrizione (max. 30)</string>
   <string name="add_qr_layout_edittext_name_hint">Nome del codice</string>
   <string name="add_qr_layout_edittext_url_hint">URL / Link</string>
   <string name="add_qr_layout_btn_salva">Salva</string>

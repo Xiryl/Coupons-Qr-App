@@ -73,4 +73,11 @@ dependencies {
     // https://github.com/amulyakhare/TextDrawable
     implementation 'com.amulyakhare:com.amulyakhare.textdrawable:1.0.1'
 
+    // CardView
+    implementation 'com.android.support:cardview-v7:27.1.1'
+
+    // qrcode generator
+    // https://github.com/kenglxn/QRGen
+    implementation 'com.github.kenglxn.QRGen:android:2.5.0'
+
 }
