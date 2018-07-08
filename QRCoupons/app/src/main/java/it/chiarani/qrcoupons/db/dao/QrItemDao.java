@@ -18,4 +18,5 @@ public interface QrItemDao {
 
   @Query("SELECT * FROM qr_table")
   LiveData<List<QrItemEntity>> getAll();
+  
 }

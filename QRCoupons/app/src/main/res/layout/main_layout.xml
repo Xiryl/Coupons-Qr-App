@@ -22,7 +22,7 @@
   <android.support.v7.widget.LinearLayoutCompat
     android:layout_width="match_parent"
     android:layout_height="@dimen/toolbar_height"
-    android:background="@color/white">
+    android:background="@color/light_gray">
 
     <android.support.v7.widget.AppCompatTextView
       android:layout_width="wrap_content"
