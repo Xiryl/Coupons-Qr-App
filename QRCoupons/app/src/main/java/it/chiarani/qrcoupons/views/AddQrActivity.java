@@ -105,7 +105,8 @@ public class AddQrActivity extends AppCompatActivity implements DatePickerDialog
             repo.insertIt(qrEntryTemplate);
 
             // UI
-            Toast.makeText(view.getContext(), "Aggiunto.", Toast.LENGTH_LONG).show();
+            Toast.makeText(view.getContext(), "Codice Aggiunto.", Toast.LENGTH_LONG).show();
+            LaunchMainActivity(this.getApplicationContext());
           }
           catch (java.text.ParseException ex) {
             Toast.makeText(view.getContext(), "Data non valida, riprova.", Toast.LENGTH_LONG).show();

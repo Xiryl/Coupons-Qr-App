@@ -25,6 +25,7 @@
       android:drawableStart="@drawable/ic_barcode"
       android:textSize="@dimen/edittext_textsize"
       android:hint="@string/edittext_hint"
+      android:maxLength="50"
       android:textColorHint="@color/bottombar_gray"
       android:textColor="@color/bottombar_gray"
       android:background="@drawable/rounded_edittext" />

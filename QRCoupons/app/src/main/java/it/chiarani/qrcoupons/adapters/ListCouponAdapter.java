@@ -61,7 +61,7 @@ public class ListCouponAdapter extends RecyclerView.Adapter<ListCouponAdapter.Vi
 
     holder.imgIcon.setImageDrawable(drawable);
 
-    holder.txtEndDate.setText(_items.get(position).getExpirationDate());
+    holder.txtEndDate.setText("Scade il:\n" + _items.get(position).getExpirationDate());
   }
 
 

@@ -30,6 +30,7 @@ public class ScanQrFragment extends Fragment {
   final static String INTENT_QR_DATA = "EXTRA_QR_DATA";
   private TextView txt_qr_code_self;
   private Button      btn_scanqr;
+  private Button      btn_valida;
   // --- -------------- ---
 
   //qr code scanner object
@@ -52,12 +53,23 @@ public class ScanQrFragment extends Fragment {
 
     txt_qr_code_self = (EditText) rootView.findViewById(R.id.qrscan_fragment_edittext_qrcode);
     btn_scanqr       = rootView.findViewById(R.id.qrscan_fragment_btn_scannerizzaqr);
+    btn_valida       = rootView.findViewById(R.id.qrscan_fragment_btn_valida);
 
     qrScan = IntentIntegrator.forSupportFragment(this);
 
     btn_scanqr.setOnClickListener(
         view -> qrScan.initiateScan()
     );
+
+    btn_valida.setOnClickListener(
+        view -> {
+          Toast.makeText(this.getContext(), "Codice Rilevato", Toast.LENGTH_LONG).show();
+          Intent intent = new Intent(getActivity(), AddQrActivity.class);
+          intent.putExtra(INTENT_QR_DATA, txt_qr_code_self.getText().toString());
+          startActivity(intent);
+        }
+    );
+
 
     return rootView;
   }
