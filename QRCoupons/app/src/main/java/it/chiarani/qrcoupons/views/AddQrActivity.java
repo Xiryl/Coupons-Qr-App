@@ -100,7 +100,6 @@ public class AddQrActivity extends AppCompatActivity implements DatePickerDialog
 
             // create entry
             QrItemEntity qrEntryTemplate = new QrItemEntity(
-                NULL,
                 binding.addQrLayoutEdittextName.getText().toString(),
                 binding.addQrLayoutEdittextDescription.getText().toString(),
                 today_date,

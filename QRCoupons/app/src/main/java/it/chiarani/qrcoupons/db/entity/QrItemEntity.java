@@ -94,8 +94,7 @@ public class QrItemEntity {
      this.uri = uri;
   }
 
-  public QrItemEntity(@NonNull  int idItem,@NonNull  String name,@NonNull  String description,@NonNull  String createdDate, String expirationDate, String code, String uri) {
-    this.idItem         = idItem;
+  public QrItemEntity(@NonNull  String name,@NonNull  String description,@NonNull  String createdDate, String expirationDate, String code, String uri) {
     this.name           = name;
     this.description    = description;
     this.createdDate    = createdDate;

@@ -21,4 +21,10 @@ public interface QrItemDao {
 
   @Query("DELETE FROM qr_table")
   void deleteAll();
+
+  @Query("DELETE FROM qr_table WHERE name=:name")
+  void deleteById(String name);
+
+  @Query("DELETE FROM qr_table WHERE name=:name AND description=:description AND code=:code")
+  void deleteByNameDescriptionCode(String name, String description, String code);
 }

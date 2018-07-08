@@ -30,6 +30,20 @@ public class QrItemRepository {
       qrItemDao.deleteAll();
     });
   }
+
+  public void deleteById(String pos) {
+    // start on a new thread
+    Executors.newSingleThreadExecutor().execute(() -> {
+      qrItemDao.deleteById(pos);
+    });
+  }
+
+  public void deleteByNameDescriptionCode(String name, String description, String code){
+    Executors.newSingleThreadExecutor().execute(() -> {
+      qrItemDao.deleteByNameDescriptionCode(name, description, code);
+    });
+  }
+
   public void insertIt(final QrItemEntity entity) {
     // start on a new thread
     Executors.newSingleThreadExecutor().execute(() -> {

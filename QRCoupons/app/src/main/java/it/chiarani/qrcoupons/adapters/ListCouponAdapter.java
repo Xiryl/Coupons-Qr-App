@@ -1,6 +1,8 @@
 package it.chiarani.qrcoupons.adapters;
 
+import android.app.Application;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
@@ -23,14 +25,17 @@ import java.util.List;
 
 import it.chiarani.qrcoupons.R;
 import it.chiarani.qrcoupons.db.entity.QrItemEntity;
+import it.chiarani.qrcoupons.repository.QrItemRepository;
 
 public class ListCouponAdapter extends RecyclerView.Adapter<ListCouponAdapter.ViewHolder> {
 
   List<QrItemEntity> _items;
+  Application _app;
 
 
-  public ListCouponAdapter(List<QrItemEntity> items) {
+  public ListCouponAdapter(List<QrItemEntity> items, Application _app) {
     this._items = items;
+    this._app = _app;
   }
 
   public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
@@ -47,6 +52,7 @@ public class ListCouponAdapter extends RecyclerView.Adapter<ListCouponAdapter.Vi
       txtEndDate = (TextView) view.findViewById(R.id.qr_item_list_end_date);
 
       view.setOnClickListener(this);
+      view.setOnLongClickListener(this);
     }
 
     @Override
@@ -79,13 +85,16 @@ public class ListCouponAdapter extends RecyclerView.Adapter<ListCouponAdapter.Vi
 
       img_delete.setOnClickListener(
           view -> {
+            QrItemRepository repo = new QrItemRepository(_app);
+            repo.deleteByNameDescriptionCode(_items.get(getLayoutPosition()).getName(),
+                _items.get(getLayoutPosition()).getDescription(),
+                _items.get(getLayoutPosition()).getCode());
             _items.remove(getLayoutPosition());
             notifyItemRemoved(getLayoutPosition());
-            Toast.makeText(v.getRootView().getContext(), "Elemento rimosso." + pos, Toast.LENGTH_LONG).show();
+            Toast.makeText(v.getRootView().getContext(), "Elemento rimosso.", Toast.LENGTH_LONG).show();
             dialog.cancel();
           }
       );
-
 
       dialog.show();
 
@@ -94,10 +103,39 @@ public class ListCouponAdapter extends RecyclerView.Adapter<ListCouponAdapter.Vi
 
     @Override
     public boolean onLongClick(View v) {
-      return false;
+      AlertDialog.Builder builder1 = new AlertDialog.Builder(v.getRootView().getContext());
+      builder1.setMessage("Eliminare " + _items.get(getLayoutPosition()).getName() + " ?");
+      builder1.setCancelable(true);
+
+      builder1.setPositiveButton(
+          "Elimina",
+          new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+              QrItemRepository repo = new QrItemRepository(_app);
+              repo.deleteByNameDescriptionCode(_items.get(getLayoutPosition()).getName(),
+                  _items.get(getLayoutPosition()).getDescription(),
+                  _items.get(getLayoutPosition()).getCode());
+              _items.remove(getLayoutPosition());
+              notifyItemRemoved(getLayoutPosition());
+              Toast.makeText(v.getRootView().getContext(), "Elemento rimosso.", Toast.LENGTH_LONG).show();
+              dialog.cancel();
+            }
+          });
+
+      builder1.setNegativeButton(
+          "annulla",
+          new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+              dialog.cancel();
+            }
+          });
+
+      AlertDialog alert11 = builder1.create();
+      alert11.show();
+
+      return true;
     }
   }
-
 
 
   @Override

@@ -59,11 +59,10 @@ public class ListCouponFragment extends Fragment {
     QrItemRepository repo = new QrItemRepository(getActivity().getApplication());
     repo.getAll().observeForever( entries -> {
       if (entries != null) {
-
         tmp.addAll(entries);
 
         // specify an adapter (see also next example)
-        mAdapter = new ListCouponAdapter(tmp);
+        mAdapter = new ListCouponAdapter(tmp, getActivity().getApplication());
         mRecyclerView.setAdapter(mAdapter);
         mAdapter.notifyDataSetChanged();
       }
