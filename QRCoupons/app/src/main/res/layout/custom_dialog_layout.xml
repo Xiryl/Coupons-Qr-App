@@ -4,7 +4,7 @@
 
   <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="420dp"
+    android:layout_height="470dp"
     android:background="#00000000"
     android:outlineProvider="bounds"
     android:clipToPadding="false">
@@ -14,7 +14,7 @@
       android:id="@+id/custom_dialog_cardbottom"
       android:layout_gravity="center"
       android:layout_width="match_parent"
-      android:layout_height="280dp"
+      android:layout_height="340dp"
       android:layout_marginTop="110dp"
       android:backgroundTint="@color/white"
       card_view:cardCornerRadius="15dp"
@@ -81,6 +81,25 @@
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:src="@drawable/ic_share"/>
+
+      <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_marginTop="260dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:src="@drawable/dotted"
+        android:layerType="software" />
+
+      <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/custom_dialog_txt_code"
+        android:layout_marginTop="290dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/offset_10"
+        android:text="Codice: "
+        android:textColor="@color/dark_gray"
+        android:gravity="center"/>
 
     </android.support.v7.widget.CardView>
 

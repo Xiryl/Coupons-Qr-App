@@ -8,7 +8,9 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.media.Image;
+import android.net.Uri;
 import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -23,6 +25,7 @@ import com.amulyakhare.textdrawable.util.ColorGenerator;
 
 import net.glxn.qrgen.android.QRCode;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.List;
@@ -69,21 +72,23 @@ public class ListCouponAdapter extends RecyclerView.Adapter<ListCouponAdapter.Vi
       dialog.setTitle("Title...");
       dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
 
-      ImageView test = dialog.findViewById(R.id.custom_dialog_img_qr);
+      ImageView imgQr = dialog.findViewById(R.id.custom_dialog_img_qr);
       Bitmap myBitmap = QRCode.from(_items.get(pos).getCode()).bitmap();
-      test.setImageBitmap(myBitmap);
+      imgQr.setImageBitmap(myBitmap);
 
-      TextView txt_name, txt_description, txt_startDate, txt_endDate;
+      TextView txt_name, txt_description, txt_startDate, txt_endDate, txt_code;
 
       txt_name = dialog.findViewById(R.id.custom_dialog_txt_title);
       txt_description = dialog.findViewById(R.id.custom_dialog_txt_description);
       txt_startDate = dialog.findViewById(R.id.custom_dialog_txt_cretedDate);
       txt_endDate = dialog.findViewById(R.id.custom_dialog_txt_expiriedDate);
+      txt_code = dialog.findViewById(R.id.custom_dialog_txt_code);
 
       txt_name.setText(_items.get(pos).getName());
       txt_description.setText(_items.get(pos).getDescription());
       txt_startDate.setText("Data di scansione: " +_items.get(pos).getCreatedDate());
       txt_endDate.setText("Data di scadenza: "+ _items.get(pos).getExpirationDate());
+      txt_code.setText("Codice: "  +_items.get(pos).getCode());
 
       ImageView img_delete = dialog.findViewById(R.id.custom_dialog_img_delete);
 
@@ -100,7 +105,7 @@ public class ListCouponAdapter extends RecyclerView.Adapter<ListCouponAdapter.Vi
           }
       );
 
-      ImageView imgQr = dialog.findViewById(R.id.custom_dialog_img_qr);
+
       imgQr.setOnClickListener(
           view -> {
             Intent intent = new Intent(view.getContext(), FullScreenImageActivity.class);
@@ -109,11 +114,24 @@ public class ListCouponAdapter extends RecyclerView.Adapter<ListCouponAdapter.Vi
           }
       );
 
+      ImageView imgShare = dialog.findViewById(R.id.custom_dialog_img_share);
+      imgShare.setOnClickListener(
+          view -> {
+            Bitmap b = myBitmap;
+            Intent share = new Intent(Intent.ACTION_SEND);
+            share.setType("image/jpeg");
+            ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+            b.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+            String path = MediaStore.Images.Media.insertImage(view.getContext().getContentResolver(),
+                b, "TITOLO IMMAGINE", null);
+            Uri imageUri =  Uri.parse(path);
+            share.putExtra(Intent.EXTRA_STREAM, imageUri);
+            view.getContext().startActivity(Intent.createChooser(share, "Select"));
+          }
+      );
       dialog.show();
 
     }
-
-
 
     @Override
     public boolean onLongClick(View v) {

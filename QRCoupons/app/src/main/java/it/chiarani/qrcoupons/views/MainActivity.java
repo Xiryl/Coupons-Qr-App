@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import it.chiarani.qrcoupons.R;
 import it.chiarani.qrcoupons.databinding.MainLayoutBinding;
+import it.chiarani.qrcoupons.fragments.AccountFragment;
 import it.chiarani.qrcoupons.fragments.ListCouponFragment;
 import it.chiarani.qrcoupons.fragments.ScanQrFragment;
 
@@ -19,10 +20,12 @@ public class MainActivity extends AppCompatActivity {
   // ---- PRIVATE FIELDS ----
   private static final String TAG_SCAN_QR = "tag_scan_qr";
   private static final String TAG_LIST_QR = "tag_list_qr";
+  private static final String TAG_ACCO_QR = "tag_acco_qr";
 
   private BottomNavigationView bottomNavigationView;
   private ScanQrFragment       scanqrF = new ScanQrFragment();
   private ListCouponFragment   listCouponF = new ListCouponFragment();
+  private AccountFragment      AccoF = new AccountFragment();
   private MainLayoutBinding    binding;
   // ---- -------------- ----
 
@@ -44,7 +47,11 @@ public class MainActivity extends AppCompatActivity {
           public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
               case R.id.bottombaritem_account:
-                // TODO
+                getSupportFragmentManager()
+                    .beginTransaction()
+                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                    .replace(R.id.main_activity_fragment_holder, AccoF, TAG_ACCO_QR)
+                    .commit();
                 return true;
               case R.id.bottombaritem_coupons:
                 getSupportFragmentManager()
