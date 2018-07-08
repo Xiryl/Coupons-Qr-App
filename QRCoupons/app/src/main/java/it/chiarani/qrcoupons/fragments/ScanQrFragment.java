@@ -101,7 +101,7 @@ public class ScanQrFragment extends Fragment {
         QrItemRepository repo = new QrItemRepository(getActivity().getApplication());
 
         // TODO: remove this line, is only for testing
-       // repo.deleteAll();
+        //repo.deleteAll();
 
       } else {
 

@@ -89,6 +89,12 @@ public class AddQrActivity extends AppCompatActivity implements DatePickerDialog
             // if this fails the date is not correct format
             Date date = sourceFormat.parse(binding.addQrLayoutEdittextEndDate.getText().toString());
 
+            if(binding.addQrLayoutEdittextName.getText().toString() == null ||
+                binding.addQrLayoutEdittextName.getText().toString().isEmpty()) {
+              Toast.makeText(view.getContext(), "Devi prima assegnare un nome al cupon, riprova.", Toast.LENGTH_LONG).show();
+              return;
+            }
+
             QrItemRepository repo = new QrItemRepository(getApplication());
 
             // create entry
@@ -110,6 +116,10 @@ public class AddQrActivity extends AppCompatActivity implements DatePickerDialog
           }
           catch (java.text.ParseException ex) {
             Toast.makeText(view.getContext(), "Data non valida, riprova.", Toast.LENGTH_LONG).show();
+            return;
+          }
+          catch (Exception ex) {
+            Toast.makeText(view.getContext(), "Hai inserito un campo non valido, riproa.", Toast.LENGTH_LONG).show();
             return;
           }
         }

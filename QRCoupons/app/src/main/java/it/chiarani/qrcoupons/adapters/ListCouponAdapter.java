@@ -50,10 +50,15 @@ public class ListCouponAdapter extends RecyclerView.Adapter<ListCouponAdapter.Vi
   @Override
   public void onBindViewHolder(ViewHolder holder, int position) {
     ColorGenerator generator = ColorGenerator.MATERIAL;
+    String name = _items.get(position).getName();
+    String description =  _items.get(position).getDescription();
+
+    if(description.length() >= 21) {
+      description = description.substring(0,21) + "...";
+    }
 
 
-
-    holder.txtTitle.setText(_items.get(position).getName() + "\n" + _items.get(position).getDescription());
+    holder.txtTitle.setText(name + "\n" + description);
 
     String first_letter = _items.get(position).getName().substring(0,1).toUpperCase();
     TextDrawable drawable = TextDrawable.builder()
