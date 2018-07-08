@@ -87,13 +87,9 @@ public class ScanQrFragment extends Fragment {
         //Toast.makeText(this.getContext(),  "Nessun Codice Rilevato", Toast.LENGTH_LONG).show();
 
         QrItemRepository repo = new QrItemRepository(getActivity().getApplication());
-        repo.getAll().observe(this, entries -> {
-          if (entries != null) {
-            for (QrItemEntity e : entries) {
-              Toast.makeText(this.getContext(), e.getName().toString(), Toast.LENGTH_LONG).show();
-            }
-          }
-        });
+
+        // TODO: remove this line, is only for testing
+       // repo.deleteAll();
 
       } else {
 

@@ -24,6 +24,12 @@ public class QrItemRepository {
     return qrItemsEntry;
   }
 
+  public void deleteAll() {
+    // start on a new thread
+    Executors.newSingleThreadExecutor().execute(() -> {
+      qrItemDao.deleteAll();
+    });
+  }
   public void insertIt(final QrItemEntity entity) {
     // start on a new thread
     Executors.newSingleThreadExecutor().execute(() -> {
