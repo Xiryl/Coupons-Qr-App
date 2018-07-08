@@ -70,9 +70,6 @@ public class ListCouponFragment extends Fragment {
     });
 
 
-
-
-
     return rootView;
   }
 }

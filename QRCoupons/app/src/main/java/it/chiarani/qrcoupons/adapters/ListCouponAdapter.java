@@ -1,12 +1,12 @@
 package it.chiarani.qrcoupons.adapters;
 
-import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.amulyakhare.textdrawable.TextDrawable;
 import com.amulyakhare.textdrawable.util.ColorGenerator;
@@ -20,30 +20,44 @@ public class ListCouponAdapter extends RecyclerView.Adapter<ListCouponAdapter.Vi
 
   List<QrItemEntity> _items;
 
+
   public ListCouponAdapter(List<QrItemEntity> items) {
     this._items = items;
-
   }
 
-  public static class ViewHolder extends RecyclerView.ViewHolder {
+  public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
     TextView txtTitle;
     TextView txtEndDate;
     ImageView imgIcon;
+
     public ViewHolder(View view) {
       super(view);
 
       txtTitle   = (TextView)  view.findViewById(R.id.qr_item_list_title);
       imgIcon    = (ImageView) view.findViewById(R.id.qr_item_list_icon);
       txtEndDate = (TextView)  view.findViewById(R.id.qr_item_list_end_date);
-
+      view.setOnClickListener(this);
     }
+
+    @Override
+    public void onClick(View v) {
+      int pos = this.getLayoutPosition();
+      Toast.makeText(v.getRootView().getContext(), "Posizione: " + pos, Toast.LENGTH_LONG).show();
+    }
+
   }
+
+
+
   @Override
   public ListCouponAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
     Boolean attachViewImmediatelyToParent = false;
     View singleItemLayout = LayoutInflater.from(parent.getContext()).inflate(R.layout.qr_item_list_layout,parent,attachViewImmediatelyToParent);
     ViewHolder myViewHolder = new ViewHolder(singleItemLayout);
+
+    singleItemLayout.setClickable(true);
+
     return myViewHolder;
   }
 
