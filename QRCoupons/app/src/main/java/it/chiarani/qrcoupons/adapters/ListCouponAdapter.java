@@ -4,8 +4,11 @@ import android.app.Application;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
+import android.media.Image;
+import android.os.Environment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -21,11 +24,13 @@ import com.amulyakhare.textdrawable.util.ColorGenerator;
 import net.glxn.qrgen.android.QRCode;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.util.List;
 
 import it.chiarani.qrcoupons.R;
 import it.chiarani.qrcoupons.db.entity.QrItemEntity;
 import it.chiarani.qrcoupons.repository.QrItemRepository;
+import it.chiarani.qrcoupons.views.FullScreenImageActivity;
 
 public class ListCouponAdapter extends RecyclerView.Adapter<ListCouponAdapter.ViewHolder> {
 
@@ -58,7 +63,6 @@ public class ListCouponAdapter extends RecyclerView.Adapter<ListCouponAdapter.Vi
     @Override
     public void onClick(View v) {
       int pos = this.getLayoutPosition();
-
 
       final Dialog dialog = new Dialog(v.getRootView().getContext());
       dialog.setContentView(R.layout.custom_dialog_layout);
@@ -96,9 +100,19 @@ public class ListCouponAdapter extends RecyclerView.Adapter<ListCouponAdapter.Vi
           }
       );
 
+      ImageView imgQr = dialog.findViewById(R.id.custom_dialog_img_qr);
+      imgQr.setOnClickListener(
+          view -> {
+            Intent intent = new Intent(view.getContext(), FullScreenImageActivity.class);
+            intent.putExtra("BitmapImage", myBitmap);
+            view.getContext().startActivity(intent);
+          }
+      );
+
       dialog.show();
 
     }
+
 
 
     @Override

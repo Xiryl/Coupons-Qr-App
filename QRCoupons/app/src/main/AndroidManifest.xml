@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
   package="it.chiarani.qrcoupons">
 
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
   <application
     android:allowBackup="true"
     android:icon="@mipmap/ic_launcher"
@@ -21,6 +23,7 @@
     <activity
       android:name=".views.AddQrActivity"
       android:screenOrientation="portrait" />
+    <activity android:name=".views.FullScreenImageActivity"></activity>
   </application>
 
 </manifest>
