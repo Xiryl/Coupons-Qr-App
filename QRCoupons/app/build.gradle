@@ -83,4 +83,11 @@ dependencies {
     // v7
     implementation 'com.android.support:preference-v7:27.1.1'
 
+    // firebase
+    compile 'com.google.firebase:firebase-core:16.0.0'
+
 }
+
+
+// firebase
+apply plugin: 'com.google.gms.google-services'
