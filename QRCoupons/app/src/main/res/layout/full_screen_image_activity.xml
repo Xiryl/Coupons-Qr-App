@@ -7,7 +7,7 @@
   tools:context=".views.FullScreenImageActivity">
   <ImageView
     android:layout_width="match_parent"
-    android:layout_height="500dp"
+    android:layout_height="@dimen/offset_500"
     android:id="@+id/full_screen_imageview"/>
 
 </android.support.constraint.ConstraintLayout>

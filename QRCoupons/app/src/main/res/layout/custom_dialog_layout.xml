@@ -14,40 +14,40 @@
       android:id="@+id/custom_dialog_cardbottom"
       android:layout_gravity="center"
       android:layout_width="match_parent"
-      android:layout_height="340dp"
+      android:layout_height="@dimen/custom_d_height_big"
       android:layout_marginTop="110dp"
       android:backgroundTint="@color/white"
-      card_view:cardCornerRadius="15dp"
-      android:elevation="8dp"
-      card_view:cardElevation="8dp">
+      card_view:cardCornerRadius="@dimen/cardview_corner_rad"
+      android:elevation="@dimen/cardview_elevation"
+      card_view:cardElevation="@dimen/cardview_elevation">
 
       <android.support.v7.widget.AppCompatTextView
         android:id="@+id/custom_dialog_txt_title"
-        android:layout_marginTop="115dp"
+        android:layout_marginTop="@dimen/custom_d_title_mTop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/offset_10"
         android:text="Nome coupon"
         android:textColor="@color/dark_gray"
         android:textStyle="bold"
-        android:textSize="27sp"
+        android:textSize="@dimen/custom_d_title_txtsize"
         android:gravity="center"/>
 
       <android.support.v7.widget.AppCompatTextView
         android:id="@+id/custom_dialog_txt_description"
-        android:layout_marginTop="155dp"
+        android:layout_marginTop="@dimen/custom_d_subtitle_mTop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/offset_10"
         android:text="Descrizione del copon"
         android:textColor="@color/dark_gray"
         android:textStyle="bold"
-        android:textSize="18sp"
+        android:textSize="@dimen/custom_d_subtitle_txtsize"
         android:gravity="center"/>
 
       <android.support.v7.widget.AppCompatTextView
         android:id="@+id/custom_dialog_txt_cretedDate"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="@dimen/custom_d_dateC_mTop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/offset_10"
@@ -57,7 +57,7 @@
 
       <android.support.v7.widget.AppCompatTextView
         android:id="@+id/custom_dialog_txt_expiriedDate"
-        android:layout_marginTop="220dp"
+        android:layout_marginTop="@dimen/custom_d_dateE_mTop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/offset_10"
@@ -67,9 +67,9 @@
 
     <ImageButton
       android:layout_margin="@dimen/offset_15"
-      android:background="#00000000"
-      android:layout_width="45dp"
-      android:layout_height="45dp"
+      android:background="@color/mtransparent"
+      android:layout_width="@dimen/offset_45"
+      android:layout_height="@dimen/offset_45"
       android:id="@+id/custom_dialog_img_delete"
       android:src="@drawable/ic_delete"/>
 
@@ -77,23 +77,23 @@
         android:layout_gravity="end"
         android:layout_margin="@dimen/offset_15"
         android:id="@+id/custom_dialog_img_share"
-        android:background="#00000000"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
+        android:background="@color/mtransparent"
+        android:layout_width="@dimen/offset_45"
+        android:layout_height="@dimen/offset_45"
         android:src="@drawable/ic_share"/>
 
       <ImageView
         android:layout_width="match_parent"
-        android:layout_height="5dp"
-        android:layout_marginTop="260dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
+        android:layout_height="@dimen/offset_10"
+        android:layout_marginTop="@dimen/custom_d_break_line_mTop"
+        android:layout_marginStart="@dimen/offset_15"
+        android:layout_marginEnd="@dimen/offset_15"
         android:src="@drawable/dotted"
         android:layerType="software" />
 
       <android.support.v7.widget.AppCompatTextView
         android:id="@+id/custom_dialog_txt_code"
-        android:layout_marginTop="290dp"
+        android:layout_marginTop="@dimen/custom_d_txtCode_mTop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/offset_10"
@@ -107,19 +107,19 @@
       xmlns:card_view="http://schemas.android.com/apk/res-auto"
       android:id="@+id/card_view0"
       android:layout_gravity="center"
-      android:layout_width="180dp"
-      android:layout_height="180dp"
+      android:layout_width="@dimen/custom_d_height_small"
+      android:layout_height="@dimen/custom_d_height_small"
       android:layout_centerHorizontal="true"
       android:backgroundTint="@color/light_gray"
-      card_view:cardCornerRadius="15dp"
-      android:elevation="8dp"
-      card_view:cardElevation="8dp">
+      card_view:cardCornerRadius="@dimen/cardview_corner_rad"
+      android:elevation="@dimen/cardview_elevation"
+      card_view:cardElevation="@dimen/cardview_elevation">
 
       <ImageView
-        android:layout_width="160dp"
+        android:layout_width="@dimen/qr_dim"
         android:id="@+id/custom_dialog_img_qr"
-        android:layout_margin="10dp"
-        android:layout_height="160dp"
+        android:layout_margin="@dimen/offset_10"
+        android:layout_height="@dimen/qr_dim"
         android:src="@drawable/ic_barcode"/>
 
     </android.support.v7.widget.CardView>

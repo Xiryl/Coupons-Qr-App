@@ -13,4 +13,9 @@
   <color name="ocra">#E58807</color>
   <color name="txt_bottomnav_gray">#C0C0C0</color>
   <color name="blue_gray">#3D404C</color>
+  <color name="first_orange">#EF7942</color>
+  <color name="second_orange">#E9A887</color>
+  <color name="mtransparent">#00000000</color>
+  <color name="touch_selector">#A0A2A7</color>
+  <color name="date_item_list_red">#B55C32</color>
 </resources>

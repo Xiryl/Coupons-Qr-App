@@ -3,33 +3,23 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
   parent="Theme.AppCompat.Light.DarkActionBar">
 
-
   <PreferenceCategory
     android:title="IMPOSTAZIONI ACCOUNT"
     android:key="pref_key_storage_settings">
     <Preference
       android:key="delete_all_qr"
-      android:title="Elimina i coupons salvati"
-      android:summary="Questa azione svuoterà il database locale. Attenzione: l'operazione è irreversibile." />
+      android:title="@string/pref_delete_title"
+      android:summary="@string/pref_delete_desc" />
 
     <Preference
       android:key="feedback"
-      android:title="Lascia un Feedback!"
-      android:summary="Vuoi proporre una modifica? Hai da segnalare un malfunzionamento?">
-    </Preference>
-
-
-    <Preference
-      android:title="Vota l'App"
-      android:summary="Ti piace l'app? Votala sul playstore e condividila ai tuoi amici e famigliari!">
-      <intent
-        android:action="android.intent.action.VIEW"
-        android:data="https://www.t.me/Xiryl" />
+      android:title="@string/pref_feedback_title"
+      android:summary="@string/pref_feedback_desc">
     </Preference>
 
     <Preference
-      android:title="Info"
-      android:summary="QR coupons è stata sviluppata da Fabio Chiarani">
+      android:title="@string/pref_info_title"
+      android:summary="@string/pref_info_desc">
       <intent
         android:action="android.intent.action.VIEW"
         android:data="https://www.chiarani.it/" />
@@ -37,7 +27,8 @@
 
     <Preference
       android:key="app_version"
-      android:title="Versione">
+      android:title="@string/pref_version_title">
     </Preference>
   </PreferenceCategory>
+
 </PreferenceScreen>

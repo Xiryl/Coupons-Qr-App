@@ -7,8 +7,14 @@
   <dimen name="edittext_margin">15dp</dimen>
   <dimen name="edittext_textsize">16sp</dimen>
   <dimen name="offset_15">15dp</dimen>
+  <dimen name="offset_16">16dp</dimen>
+  <dimen name="offset_4">4dp</dimen>
+  <dimen name="offset_5">5dp</dimen>
+  <dimen name="offset_60">60dp</dimen>
   <dimen name="offset_10">10dp</dimen>
   <dimen name="offset_40">40dp</dimen>
+  <dimen name="offset_500">500dp</dimen>
+  <dimen name="offset_45">45dp</dimen>
   <dimen name="offset_20">20dp</dimen>
   <dimen name="offset_35">35dp</dimen>
   <dimen name="lottie_animation_max_heigth">300dp</dimen>
@@ -17,4 +23,21 @@
   <dimen name="hr_height">2dp</dimen>
   <dimen name="add_qr_txtv_margin_start">45dp</dimen>
   <dimen name="add_qr_txtv_margin_end">15dp</dimen>
+  <dimen name="custom_d_height_big">340dp</dimen>
+  <dimen name="custom_d_height_small">180dp</dimen>
+  <dimen name="cardview_corner_rad">15dp</dimen>
+  <dimen name="cardview_elevation">8dp</dimen>
+  <dimen name="custom_d_title_mTop">115dp</dimen>
+  <dimen name="custom_d_title_txtsize">27sp</dimen>
+  <dimen name="custom_d_subtitle_mTop">155dp</dimen>
+  <dimen name="custom_d_subtitle_txtsize">18sp</dimen>
+  <dimen name="custom_d_dateC_mTop">200dp</dimen>
+  <dimen name="custom_d_dateE_mTop">220dp</dimen>
+  <dimen name="custom_d_txtCode_mTop">290dp</dimen>
+  <dimen name="custom_d_break_line_mTop">260dp</dimen>
+  <dimen name="qr_dim">160dp</dimen>
+  <dimen name="c_list_banner_height">160dp</dimen>
+  <dimen name="c_list_lottie_height">100dp</dimen>
+  <dimen name="recyclerview_mTop">175dp</dimen>
+  <dimen name="img_colored_height">60dp</dimen>
 </resources>

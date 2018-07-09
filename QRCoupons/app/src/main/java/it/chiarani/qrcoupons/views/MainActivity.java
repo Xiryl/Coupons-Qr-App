@@ -7,11 +7,9 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import it.chiarani.qrcoupons.R;
 import it.chiarani.qrcoupons.databinding.MainLayoutBinding;
-import it.chiarani.qrcoupons.fragments.AccountFragment;
 import it.chiarani.qrcoupons.fragments.ListCouponFragment;
 import it.chiarani.qrcoupons.fragments.ScanQrFragment;
 import it.chiarani.qrcoupons.fragments.SettingsFragment;
@@ -26,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
   private BottomNavigationView bottomNavigationView;
   private ScanQrFragment       scanqrF = new ScanQrFragment();
   private ListCouponFragment   listCouponF = new ListCouponFragment();
-  private AccountFragment      AccoF = new AccountFragment();
   private MainLayoutBinding    binding;
   // ---- -------------- ----
 

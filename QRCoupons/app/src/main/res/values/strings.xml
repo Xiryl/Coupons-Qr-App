@@ -2,8 +2,10 @@
   <string name="app_name">QR Coupons</string>
   <string name="btn_valida">Valida</string>
   <string name="edittext_hint"> Codice Qr</string>
+
   <string name="qr_scan_layout_scan_qr">Scannerizza il codice QR\no il codice a barre in modo automatico"</string>
   <string name="qr_scan_layoyt_btn_scan">Scannerizza Codice</string>
+
   <string name="add_qr_layout_txt_header">Repilogo dati del codice scannerizzato</string>
   <string name="add_qr_layout_edittext_hint">Data Scadenza dd/MM/YY</string>
   <string name="add_qr_layout_edittext_description_hint">Descrizione (max. 30)</string>
@@ -11,6 +13,15 @@
   <string name="add_qr_layout_edittext_url_hint">URL / Link</string>
   <string name="add_qr_layout_btn_salva">Salva</string>
 
-  <!-- TODO: Remove or change this placeholder text -->
+  <string name="pref_delete_title">Elimina i coupons salvati</string>
+  <string name="pref_delete_desc">Questa azione svuoterà il database locale. Attenzione: l\'operazione è irreversibile</string>
+  <string name="pref_feedback_title">Lascia un Feedback!</string>
+  <string name="pref_feedback_desc">Vuoi proporre una modifica? Hai da segnalare un malfunzionamento?</string>
+  <string name="pref_info_title">Info</string>
+  <string name="pref_info_desc">QR coupons è stata sviluppata da Fabio Chiarani</string>
+  <string name="pref_version_title">Versione</string>
+
+  <string name="list_coupon_title">Scorri tra i cupon salvati e selezionane uno\nper ottenere maggiori informazioni!</string>
+
   <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
