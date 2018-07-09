@@ -1,16 +1,20 @@
 package it.chiarani.qrcoupons.adapters;
 
+import android.Manifest;
 import android.app.Application;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -34,6 +38,7 @@ import it.chiarani.qrcoupons.R;
 import it.chiarani.qrcoupons.db.entity.QrItemEntity;
 import it.chiarani.qrcoupons.repository.QrItemRepository;
 import it.chiarani.qrcoupons.views.FullScreenImageActivity;
+import it.chiarani.qrcoupons.views.MainActivity;
 
 public class ListCouponAdapter extends RecyclerView.Adapter<ListCouponAdapter.ViewHolder> {
 
