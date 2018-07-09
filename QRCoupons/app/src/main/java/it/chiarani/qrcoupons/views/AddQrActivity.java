@@ -31,6 +31,7 @@ public class AddQrActivity extends AppCompatActivity implements DatePickerDialog
 
   private SimpleDateFormat today_date_format = new SimpleDateFormat("dd/MM/yyyy");
   private AddQrLayoutBinding binding;
+  String qr_data;
   // ---- -------------- ----
 
 
@@ -43,7 +44,7 @@ public class AddQrActivity extends AppCompatActivity implements DatePickerDialog
     binding = DataBindingUtil.setContentView(this, R.layout.add_qr_layout);
 
     // set UI text
-    String qr_data    = getIntent().getStringExtra(INTENT_QR_DATA);
+    qr_data    = getIntent().getStringExtra(INTENT_QR_DATA);
     String today_date = today_date_format.format(new Date());
 
     binding.addQrLayoutTxtQrValue.setText("Codice: " + qr_data);
@@ -104,7 +105,7 @@ public class AddQrActivity extends AppCompatActivity implements DatePickerDialog
                 binding.addQrLayoutEdittextDescription.getText().toString(),
                 today_date,
                 binding.addQrLayoutEdittextEndDate.getText().toString(),
-                binding.addQrLayoutTxtQrValue.getText().toString(),
+                qr_data,
                 "");
 
             // insert entry on db

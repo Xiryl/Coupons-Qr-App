@@ -50,7 +50,6 @@ public class ListCouponFragment extends Fragment {
     mRecyclerView = (RecyclerView) rootView.findViewById(R.id.list_coupon_fragment_recycler_view);
     mRecyclerView.setHasFixedSize(true);
 
-    //this.getActivity().getWindow().setStatusBarColor(Color.rgb(239, 121, 66));
     // set linearlayoyt manager
     mLayoutManager = new LinearLayoutManager(rootView.getContext());
     mRecyclerView.setLayoutManager(mLayoutManager);

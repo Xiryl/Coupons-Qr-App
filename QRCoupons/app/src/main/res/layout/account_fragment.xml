@@ -26,69 +26,9 @@
       android:textStyle="bold"
       android:gravity="center"/>
 
-    <!-- SCAN TEXT -->
-    <android.support.v7.widget.AppCompatTextView
-      android:layout_marginTop="190dp"
+    <FrameLayout
+      android:id="@+id/activity_settings_frame"
       android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_marginBottom="@dimen/offset_10"
-      android:text="Coupon salvati presenti: 10"
-      android:textColor="@color/bottombar_gray"
-      android:textStyle="bold"
-      android:gravity="center"/>
-
-    <!-- SCAN QR BUTTON -->
-    <android.support.v7.widget.AppCompatButton
-      android:id="@+id/qrscan_fragment_btn_pulisci_cache"
-      android:layout_width="200dp"
-      android:layout_height="@dimen/offset_40"
-      android:layout_marginTop="230dp"
-      android:textColor="@color/white"
-      android:text="Pulisci Cache Coupon"
-      android:paddingStart="@dimen/offset_15"
-      android:paddingEnd="@dimen/offset_15"
-      android:textAllCaps="false"
-      android:layout_gravity="center_horizontal"
-      android:background="#DB4532"/>
-
-    <android.support.v7.widget.AppCompatButton
-      android:id="@+id/qrscan_fragment_btn_contatta"
-      android:layout_width="200dp"
-      android:layout_height="@dimen/offset_40"
-      android:layout_marginTop="300dp"
-      android:textColor="@color/white"
-      android:text="Contatta lo Sviluppatore"
-      android:paddingStart="@dimen/offset_15"
-      android:paddingEnd="@dimen/offset_15"
-      android:textAllCaps="false"
-      android:layout_gravity="center_horizontal"
-      android:background="#7458D1"/>
-
-    <android.support.v7.widget.AppCompatButton
-      android:id="@+id/qrscan_fragment_btn_donazione"
-      android:layout_width="200dp"
-      android:layout_height="@dimen/offset_40"
-      android:layout_marginTop="370dp"
-      android:textColor="@color/white"
-      android:text="Fai Una Donazione"
-      android:paddingStart="@dimen/offset_15"
-      android:paddingEnd="@dimen/offset_15"
-      android:textAllCaps="false"
-      android:layout_gravity="center_horizontal"
-      android:background="#90A644"/>
-
-    <android.support.v7.widget.AppCompatButton
-      android:id="@+id/qrscan_fragment_btn_info"
-      android:layout_width="200dp"
-      android:layout_height="@dimen/offset_40"
-      android:layout_marginTop="440dp"
-      android:textColor="@color/white"
-      android:text="Info Applicazione"
-      android:paddingStart="@dimen/offset_15"
-      android:paddingEnd="@dimen/offset_15"
-      android:textAllCaps="false"
-      android:layout_gravity="center_horizontal"
-      android:background="#BEBFC3"/>
-    <!-- END SCAN QR BUTTON -->
+      android:layout_height="wrap_content" />
   </FrameLayout>
 </layout>

@@ -6,6 +6,11 @@
     <item name="colorPrimary">@color/colorPrimary</item>
     <item name="colorPrimaryDark">@color/dark_gray</item>
     <item name="colorAccent">@color/colorAccent</item>
+    <item name="preferenceTheme">@style/PreferencesTheme</item>
+  </style>
+
+  <style name="PreferencesTheme">
+    <item name="android:background">#615F5F</item>
   </style>
 
 </resources>

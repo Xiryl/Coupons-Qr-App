@@ -14,6 +14,7 @@ import it.chiarani.qrcoupons.databinding.MainLayoutBinding;
 import it.chiarani.qrcoupons.fragments.AccountFragment;
 import it.chiarani.qrcoupons.fragments.ListCouponFragment;
 import it.chiarani.qrcoupons.fragments.ScanQrFragment;
+import it.chiarani.qrcoupons.fragments.SettingsFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -48,9 +49,7 @@ public class MainActivity extends AppCompatActivity {
             switch (item.getItemId()) {
               case R.id.bottombaritem_account:
                 getSupportFragmentManager()
-                    .beginTransaction()
-                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-                    .replace(R.id.main_activity_fragment_holder, AccoF, TAG_ACCO_QR)
+                .beginTransaction().replace(R.id.main_activity_fragment_holder, new SettingsFragment())
                     .commit();
                 return true;
               case R.id.bottombaritem_coupons:

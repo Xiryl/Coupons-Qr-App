@@ -34,6 +34,10 @@ public class AccountFragment extends Fragment {
     View rootView = inflater.inflate(R.layout.account_fragment, container, false);
 
 
+
+    getChildFragmentManager().beginTransaction().replace(R.id.activity_settings_frame, new SettingsFragment())
+        .commit();
+
     return rootView;
   }
 }

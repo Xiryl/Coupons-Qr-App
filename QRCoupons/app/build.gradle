@@ -80,4 +80,7 @@ dependencies {
     // https://github.com/kenglxn/QRGen
     implementation 'com.github.kenglxn.QRGen:android:2.5.0'
 
+    // v7
+    implementation 'com.android.support:preference-v7:27.1.1'
+
 }
