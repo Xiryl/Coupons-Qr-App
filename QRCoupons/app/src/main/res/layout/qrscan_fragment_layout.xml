@@ -70,7 +70,6 @@
       android:layout_marginTop="25dp"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_marginBottom="@dimen/offset_10"
       android:text="@string/qr_scan_layout_scan_qr"
       android:textColor="@color/bottombar_gray"
       android:gravity="center"/>
@@ -82,7 +81,6 @@
     android:id="@+id/qrscan_fragment_btn_scannerizzaqr"
     android:layout_width="wrap_content"
     android:layout_height="@dimen/offset_40"
-    android:layout_marginTop="@dimen/offset_10"
     android:textColor="@color/white"
     android:text="@string/qr_scan_layoyt_btn_scan"
     android:paddingStart="@dimen/offset_15"

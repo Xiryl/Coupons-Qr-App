@@ -47,6 +47,9 @@ public class ListCouponAdapter extends RecyclerView.Adapter<ListCouponAdapter.Vi
 
 
   public ListCouponAdapter(List<QrItemEntity> items, Application _app) {
+    if(items.size() == 0) {
+      Toast.makeText(_app, "Nessun elemento presente. Scannerizzane uno ora!", Toast.LENGTH_LONG).show();
+    }
     this._items = items;
     this._app = _app;
   }
