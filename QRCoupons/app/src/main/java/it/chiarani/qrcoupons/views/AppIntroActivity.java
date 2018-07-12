@@ -24,7 +24,7 @@ public class AppIntroActivity extends AppIntro2 {
 
     // Instead of fragments, you can also use our default slide
     // Just set a title, description, background and image. AppIntro will do the rest
-    addSlide(AppIntroFragment.newInstance("Benvenuto in QR COUPONS", "Utilizzami per scansionare e salvare i tuoi codici QR!", R.drawable.ic_scan_qr, Color.parseColor("#222222")));
+    addSlide(AppIntroFragment.newInstance("Benvenuto in COUPONS-QR", "Utilizzami per scansionare e salvare i tuoi codici QR!", R.drawable.ic_scan_qr, Color.parseColor("#222222")));
     addSlide(AppIntroFragment.newInstance("Approvazione dei Permessi", "I pernessi di scrittura mi serviranno per poterti salvare in modo permamente in loco i tuoi codici QR scansionati!", R.drawable.ic_storage, Color.parseColor("#51B9D1")));
     addSlide(AppIntroFragment.newInstance("Siamo pronti!", "...Iniziamo!", R.drawable.checked, Color.parseColor("#66AC5B")));
 
