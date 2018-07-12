@@ -24,6 +24,9 @@
       android:name=".views.AddQrActivity"
       android:screenOrientation="portrait" />
     <activity android:name=".views.FullScreenImageActivity"></activity>
+
+    <activity android:name=".views.AppIntroActivity"
+      android:label="App Intro Activity" />
   </application>
 
 </manifest>
