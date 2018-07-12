@@ -84,11 +84,15 @@ dependencies {
     implementation 'com.android.support:preference-v7:27.1.1'
 
     // firebase
-    implementation 'com.google.firebase:firebase-core:16.0.0'
+    implementation 'com.google.firebase:firebase-core:16.0.1'
 
     // app intro
     // https://github.com/apl-devs/AppIntro
     implementation 'com.github.apl-devs:appintro:v4.2.3'
+
+    // firebase crashlytics
+    // https://firebase.google.com/docs/crash/android
+    implementation 'com.google.firebase:firebase-crash:16.0.1'
 
 }
 

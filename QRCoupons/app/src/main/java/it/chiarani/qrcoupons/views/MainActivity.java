@@ -11,6 +11,8 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
+import com.google.firebase.crash.FirebaseCrash;
+
 import it.chiarani.qrcoupons.R;
 import it.chiarani.qrcoupons.databinding.MainLayoutBinding;
 import it.chiarani.qrcoupons.fragments.ListCouponFragment;
@@ -109,7 +111,6 @@ public class MainActivity extends AppCompatActivity {
 
     // Start the thread
     t.start();
-
 
     // set scanqr fragment
     getSupportFragmentManager()
