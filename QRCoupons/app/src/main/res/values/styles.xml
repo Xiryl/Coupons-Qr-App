@@ -5,12 +5,14 @@
     <!-- Customize your theme here. -->
     <item name="colorPrimary">@color/colorPrimary</item>
     <item name="colorPrimaryDark">@color/dark_gray</item>
-    <item name="colorAccent">@color/colorAccent</item>
+    <item name="colorAccent">@color/second_orange</item>
     <item name="preferenceTheme">@style/PreferencesTheme</item>
   </style>
 
   <style name="PreferencesTheme">
-    <item name="android:background">#615F5F</item>
+    <item name="android:background">@color/white</item>
+    <item name="android:textColor">#615F5F</item>
+    <item name="android:textColorSecondary">#B5B5B5</item>
   </style>
 
 </resources>

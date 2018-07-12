@@ -23,9 +23,9 @@
   <string name="pref_sorgente_title">Sorgente</string>
   <string name="pref_sorgente_desc">Vuoi visionare il codice sorgente dell\'applicazione?</string>
   <string name="pref_privacy_title">Privacy</string>
-  <string name="pref_privacy_desc">Non trattiamo alcun tuo dato. L\'app fa l\'uso di Google.Firebase per visionare i crash anomali.</string>
+  <string name="pref_privacy_desc">Non trattiamo alcun tuo dato. L\'app fa l\'uso di Google.Firebase per visionare i crash anormali.</string>
 
-  <string name="list_coupon_title">Scorri tra i cupon salvati e selezionane uno\nper ottenere maggiori informazioni!</string>
+  <string name="list_coupon_title">Scorri tra i coupon salvati e selezionane uno\nper ottenere maggiori informazioni!</string>
 
   <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

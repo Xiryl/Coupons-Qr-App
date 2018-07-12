@@ -13,11 +13,17 @@ import android.view.MenuItem;
 
 import com.google.firebase.crash.FirebaseCrash;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import it.chiarani.qrcoupons.R;
+import it.chiarani.qrcoupons.adapters.ListCouponAdapter;
 import it.chiarani.qrcoupons.databinding.MainLayoutBinding;
+import it.chiarani.qrcoupons.db.entity.QrItemEntity;
 import it.chiarani.qrcoupons.fragments.ListCouponFragment;
 import it.chiarani.qrcoupons.fragments.ScanQrFragment;
 import it.chiarani.qrcoupons.fragments.SettingsFragment;
+import it.chiarani.qrcoupons.repository.QrItemRepository;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -112,10 +118,25 @@ public class MainActivity extends AppCompatActivity {
     // Start the thread
     t.start();
 
-    // set scanqr fragment
-    getSupportFragmentManager()
-        .beginTransaction()
-        .replace(R.id.main_activity_fragment_holder, scanqrF, TAG_SCAN_QR)
-        .commit();
+
+    QrItemRepository repo = new QrItemRepository(this.getApplication());
+    repo.getAll().observeForever( entries -> {
+      if (entries != null) {
+        // set LIST qr fragment
+        bottomNavigationView.setSelectedItemId(R.id.bottombaritem_coupons);
+        getSupportFragmentManager()
+            .beginTransaction()
+            .replace(R.id.main_activity_fragment_holder, listCouponF, TAG_LIST_QR)
+            .commit();
+      }
+      else {
+        // set scanqr fragment
+        bottomNavigationView.setSelectedItemId(R.id.bottombaritem_scanqr);
+        getSupportFragmentManager()
+            .beginTransaction()
+            .replace(R.id.main_activity_fragment_holder, scanqrF, TAG_SCAN_QR)
+            .commit();
+      }
+    });
   }
 }

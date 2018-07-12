@@ -38,6 +38,6 @@
   <dimen name="qr_dim">160dp</dimen>
   <dimen name="c_list_banner_height">160dp</dimen>
   <dimen name="c_list_lottie_height">100dp</dimen>
-  <dimen name="recyclerview_mTop">175dp</dimen>
+  <dimen name="recyclerview_mTop">170dp</dimen>
   <dimen name="img_colored_height">60dp</dimen>
 </resources>
