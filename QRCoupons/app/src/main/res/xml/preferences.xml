@@ -26,6 +26,22 @@
     </Preference>
 
     <Preference
+      android:title="@string/pref_sorgente_title"
+      android:summary="@string/pref_sorgente_desc">
+      <intent
+        android:action="android.intent.action.VIEW"
+        android:data="https://www.github.com/Xiryl" />
+    </Preference>
+
+    <Preference
+      android:title="@string/pref_privacy_title"
+      android:summary="@string/pref_privacy_desc">
+      <intent
+        android:action="android.intent.action.VIEW"
+        android:data="https://firebase.google.com" />
+    </Preference>
+
+    <Preference
       android:key="app_version"
       android:title="@string/pref_version_title">
     </Preference>
