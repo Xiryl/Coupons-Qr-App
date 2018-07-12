@@ -121,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
 
     QrItemRepository repo = new QrItemRepository(this.getApplication());
     repo.getAll().observeForever( entries -> {
-      if (entries != null) {
+      if (entries != null && entries.size() > 0) {
         // set LIST qr fragment
         bottomNavigationView.setSelectedItemId(R.id.bottombaritem_coupons);
         getSupportFragmentManager()

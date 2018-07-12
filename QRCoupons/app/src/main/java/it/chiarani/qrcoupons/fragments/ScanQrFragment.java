@@ -52,6 +52,7 @@ public class ScanQrFragment extends Fragment {
   private TextView txt_qr_code_self;
   private Button      btn_scanqr;
   private Button      btn_valida;
+  private Button      btn_carica;
   // --- -------------- ---
 
   //qr code scanner object
@@ -75,6 +76,7 @@ public class ScanQrFragment extends Fragment {
     txt_qr_code_self = (EditText) rootView.findViewById(R.id.qrscan_fragment_edittext_qrcode);
     btn_scanqr       = rootView.findViewById(R.id.qrscan_fragment_btn_scannerizzaqr);
     btn_valida       = rootView.findViewById(R.id.qrscan_fragment_btn_valida);
+    btn_carica       = rootView.findViewById(R.id.qrscan_fragment_btn_carica);
 
     qrScan = IntentIntegrator.forSupportFragment(this);
 
@@ -82,12 +84,19 @@ public class ScanQrFragment extends Fragment {
         view -> qrScan.initiateScan()
     );
 
-    btn_valida.setOnClickListener(
+    btn_carica.setOnClickListener(
         view -> {
           Intent i = new Intent(Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
 
           startActivityForResult(i, 9999);
-          /*
+        }
+    );
+
+
+    btn_valida.setOnClickListener(
+        view -> {
+
+
           if(txt_qr_code_self.getText().toString().isEmpty() ||
               txt_qr_code_self.getText().toString() == null ||
               txt_qr_code_self.getText().toString() == "") {
@@ -97,7 +106,7 @@ public class ScanQrFragment extends Fragment {
           Toast.makeText(this.getContext(), "Codice Rilevato", Toast.LENGTH_LONG).show();
           Intent intent = new Intent(getActivity(), AddQrActivity.class);
           intent.putExtra(INTENT_QR_DATA, txt_qr_code_self.getText().toString());
-          startActivity(intent);*/
+          startActivity(intent);
         }
     );
 
@@ -158,7 +167,12 @@ public class ScanQrFragment extends Fragment {
       cursor.close();
 
       String x = decodeQRImage(filePath);
-      Toast.makeText(this.getContext(),  x, Toast.LENGTH_LONG).show();
+      if(x != null || x.isEmpty())
+
+      Toast.makeText(this.getContext(), "Codice Rilevato", Toast.LENGTH_LONG).show();
+      Intent intent = new Intent(getActivity(), AddQrActivity.class);
+      intent.putExtra(INTENT_QR_DATA, x);
+      startActivity(intent);
     }
 
 

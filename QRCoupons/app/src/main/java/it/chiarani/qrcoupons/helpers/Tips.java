@@ -19,7 +19,7 @@ public class Tips {
     final MaterialTapTargetPrompt secondTips = new MaterialTapTargetPrompt.Builder(fragment)
         .setTarget(rootView.findViewById(R.id.qrscan_fragment_btn_valida))
         .setPrimaryText("Non riesci a scannerizzarlo?")
-        .setSecondaryText("Inseriscilo manualmente da qua!").create();
+        .setSecondaryText("Inseriscilo manualmente da qua, oppure caricalo dalla galleria!").create();
 
     final MaterialTapTargetPrompt firstTips = new MaterialTapTargetPrompt.Builder(fragment)
         .setTarget(rootView.findViewById(R.id.qrscan_fragment_btn_scannerizzaqr))

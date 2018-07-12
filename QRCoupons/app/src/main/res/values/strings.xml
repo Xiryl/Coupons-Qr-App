@@ -1,7 +1,8 @@
 <resources>
   <string name="app_name">QR Coupons</string>
   <string name="btn_valida">Valida</string>
-  <string name="edittext_hint"> Codice Qr</string>
+  <string name="btn_carica">Carica Foto QR</string>
+  <string name="edittext_hint"> Codice QR</string>
 
   <string name="qr_scan_layout_scan_qr">Scannerizza il codice QR\no il codice a barre in modo automatico"</string>
   <string name="qr_scan_layoyt_btn_scan">Scannerizza Codice</string>
