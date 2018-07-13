@@ -28,4 +28,4 @@ Download it from the [Play Store](https://play.google.com/store/apps/details?id=
 
 #### Thanks
 
-> I thank [@francescotonini](https://github.com/francescotonini) for help during development and [@evaviesi](https://github.com/francescotonini) for help with translations and typos
+> I thank [@francescotonini](https://github.com/francescotonini) for help during development and [@evaviesi](https://www.facebook.com/eva.viesi) for help with translations and typos
