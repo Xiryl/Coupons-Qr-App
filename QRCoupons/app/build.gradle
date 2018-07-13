@@ -1,27 +1,24 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+    }
     compileSdkVersion 27
     defaultConfig {
         applicationId "it.chiarani.qrcoupons"
         minSdkVersion 22
         targetSdkVersion 27
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "2.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        CouponsQr {
         }
     }
-
     dataBinding {
         enabled = true
     }
-
-
     compileOptions {
         targetCompatibility 1.8
         sourceCompatibility 1.8
@@ -31,45 +28,50 @@ android {
 dependencies {
 
     // Room components
-    implementation "android.arch.persistence.room:runtime:1.0.0"
+    implementation 'android.arch.persistence.room:runtime:1.0.0'
     annotationProcessor "android.arch.persistence.room:compiler:1.0.0"
 
     // Lifecycle components
-    implementation "android.arch.lifecycle:extensions:1.1.1"
+    implementation 'android.arch.lifecycle:extensions:1.1.1'
 
     // V4 design library
     implementation 'com.android.support:support-v4:27.1.1'
-
     implementation 'com.android.support:design:27.1.1'
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    implementation "android.arch.lifecycle:extensions:1.1.1"
+    implementation 'android.arch.lifecycle:extensions:1.1.1'
 
     // lottie animation
+
     //http://airbnb.io/lottie/android/android.html#getting-started
     implementation 'com.airbnb.android:lottie:2.5.1'
 
     // init tutorial
+
     // https://github.com/sjwall/MaterialTapTargetPrompt
     implementation 'uk.co.samuelwall:material-tap-target-prompt:2.10.0'
 
     // zxing qr scanner
+
     // https://www.simplifiedcoding.net/android-qr-code-scanner-tutorial/
     implementation 'com.journeyapps:zxing-android-embedded:3.4.0'
 
     // datetime Picker
+
     // https://github.com/wdullaer/MaterialDateTimePicker
     implementation 'com.wdullaer:materialdatetimepicker:3.6.1'
 
     // recyclerview
+
     // https://developer.android.com/guide/topics/ui/layout/recyclerview
     implementation 'com.android.support:recyclerview-v7:27.1.1'
 
     // TextDrawable
+
     // https://github.com/amulyakhare/TextDrawable
     implementation 'com.amulyakhare:com.amulyakhare.textdrawable:1.0.1'
 
@@ -77,6 +79,7 @@ dependencies {
     implementation 'com.android.support:cardview-v7:27.1.1'
 
     // qrcode generator
+
     // https://github.com/kenglxn/QRGen
     implementation 'com.github.kenglxn.QRGen:android:2.5.0'
 
@@ -87,13 +90,14 @@ dependencies {
     implementation 'com.google.firebase:firebase-core:16.0.1'
 
     // app intro
+
     // https://github.com/apl-devs/AppIntro
     implementation 'com.github.apl-devs:appintro:v4.2.3'
 
     // firebase crashlytics
+
     // https://firebase.google.com/docs/crash/android
     implementation 'com.google.firebase:firebase-crash:16.0.1'
-
 }
 
 
