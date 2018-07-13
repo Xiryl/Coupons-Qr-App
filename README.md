@@ -25,3 +25,7 @@ Download it from the [Play Store](https://play.google.com/store/apps/details?id=
 
 #### Version Number & Last Update
 > *2.0 - First Release*
+
+#### Thanks
+
+> I thank [@francescotonini](https://github.com/francescotonini) for help during development and [@evaviesi](https://github.com/francescotonini) for help with translations and typos
